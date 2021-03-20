@@ -1,0 +1,272 @@
+* {
+    padding: 0;
+    margin : 0;
+}
+
+header{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    height: 70px;
+    width: 100%;
+    z-index: 1;
+    text-transform: uppercase;
+}
+
+header a:link, a:visited{
+    text-decoration: none;
+    color: white;
+}
+header .site-name{
+    padding: 30px;
+    color: white;
+    font-family: Roboto;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    font-family: Nunito;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav ul{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+}
+nav ul a li{
+    padding: 24px 26px 24px 26px; 
+    
+}
+nav ul li:hover{
+    color: rgb(232, 192, 97);
+    transition: color 0.7s;
+}
+
+.intro{
+    background-attachment: fixed;
+    overflow: auto;
+    width: 100%;
+    height: 980px;
+    background-image: url("../Images/imgFirstIndex.png");
+    background-color:bisque;
+}
+.intro > div{
+    position: relative;
+    color: rgb(232, 192, 97);
+}
+.intro .title{
+    width: 800px;
+    word-spacing: 2px;
+    color: white;
+    margin: 167px 0px 0 100px;
+    grid-area: 1 / 1 / 2 / 2;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 80px;
+}
+.intro .subtitle{
+    margin: 20px 0px 0 100px;
+    font-family: Montserrat;
+    font-weight: lighter;
+    font-size: 35px;
+    font-style: italic;
+}
+.intro .button{
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 250px;
+    height: 60px;
+    margin: 200px 0px 0 100px;
+}
+.button a:link{
+    text-decoration: none;
+    color:rgb(49, 49, 49);
+}
+.button > a:hover{
+    background: rgba(0, 0, 0, 0.555);
+    color: white;
+    transition: color 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+.button > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.button .browse{
+    width:100%;
+    margin-left: 10px;
+}
+.button .link-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(232, 192, 97);
+    height: 100%;
+    width: 28%;
+}
+.link-image img{
+    width: 30px;
+    transform: rotate(90deg);
+}
+.second-panel{
+    width: 100%;
+    height: 700px;
+    background-color:bisque;
+    background-attachment: fixed;
+    background-image: url("../Images/indexSecondImage.jpg");
+}
+
+.second-panel .text-area{
+    display:flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: #c0564b;
+    height: 100%;
+    width: 40%;
+    left: 0px;
+}
+
+.second-panel .text-area .text, .third-panel .text-area .text{
+    height: 300px;
+    width: 350px;
+    color: white;
+}
+.second-panel h1, .third-panel h1{
+    text-transform: uppercase;
+    font-size: 38px;
+    font-family: 'Montserrat';
+    font-weight: 900;
+}
+.second-panel svg, .third-panel svg{
+    fill: #fd8b7c;
+    height: 50px;
+    margin: 20px 0px 10px 0px;
+}
+.second-panel p, .third-panel p{
+    font-family: Raleway;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+.third-panel{
+    position: relative;
+    width: 100%;
+    height: 700px;
+    background-color:bisque;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../Images/indexThirdImage.jpg");
+}
+
+.third-panel .text-area{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: #007664;
+    height: 100%;
+    width: 40%;
+    right: 0px;
+}
+.third-panel svg{
+    fill: #dfe0df;
+}
+.competition-panel{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 700px;
+    font-family: Montserrat;
+    color:white;
+    background-color: rgb(121, 121, 121);
+}
+.compete, .create{
+    background-color: rgb(51, 51, 51);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 100%;
+    width: 57%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s ease;
+}
+.competition-panel .image{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    top: 50px;
+}
+.competition-panel img{
+    position: relative;
+    width: 550px;
+    right: 90px;
+}
+.compete .image{
+    margin-right: 200px;
+}
+.create .image{
+    margin-left: 200px;
+}
+.competition-panel .compete{
+    clip-path: polygon(0 0, 100% 0%, 70% 100%, 0% 100%); 
+    transition: 0.4s ease;
+}
+.compete .text, .create .text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+}
+.compete .text{
+    margin-right: 200px;
+}
+.create .text{
+    margin-left: 200px;
+}
+.competition-panel .create{
+    right: 0;
+    clip-path: polygon(30% 0, 100% 0%, 100% 100%, 0% 100%);
+    transition: 0.4s ease;
+}
+.competition-panel h1{
+    padding: 40px;
+}
+.create:hover, .compete:hover{
+    z-index: 1;
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%); 
+    transition: 0.4s ease-out;
+}
