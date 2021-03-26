@@ -238,6 +238,29 @@ nav ul li:hover{
 .create .image{
     margin-left: 200px;
 }
+.compete .wrapper, .create .wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+.compete:hover > .wrapper{
+    margin-right: 30%;
+    transition: 0.4s ease-out, z-index 0s;
+}
+.compete > .wrapper{
+    margin-right: 0%;
+    transition: 0.4s ease;
+}
+.create:hover > .wrapper{
+    margin-left: 30%;
+    transition: 0.4s ease-out, z-index 0s;
+}
+.create > .wrapper{
+    margin-left: 0%;
+    transition: 0.4s ease;
+}
 .competition-panel .compete{
     clip-path: polygon(0 0, 100% 0%, 70% 100%, 0% 100%); 
     transition: 0.4s ease;
@@ -247,8 +270,8 @@ nav ul li:hover{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 400px;
-    height: 300px;
+    width: 70%;
+    margin-top: 50px;
 }
 .compete .text{
     margin-right: 200px;
@@ -265,8 +288,83 @@ nav ul li:hover{
     padding: 40px;
 }
 .create:hover, .compete:hover{
+    background-color: rgb(29, 29, 29);
     z-index: 1;
     width: 100%;
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%); 
-    transition: 0.4s ease-out;
+    transition: 0.4s ease-out, z-index 0s;
+}
+.compete{
+    z-index: 0;
+}
+footer{
+    position:relative;
+    width:100%;
+    height: 300px;
+    background-color: rgb(10, 10, 10);
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
+footer > div{
+    width: 100%;
+}
+footer .media{
+    margin: 40px 0px 0px 40px;
+}
+footer .site-name{
+    color: white;
+    font-family: Roboto;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 2vw;
+}
+footer .media .social{
+    margin-top: 20px;
+}
+footer .media img{
+    margin: 7px;
+    max-width: 30px;
+    filter: invert(100%);
+}
+footer .contact{
+    font-family: Nunito;
+    letter-spacing: 1px;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1vw;
+}
+footer .contact h2{
+    text-transform: uppercase;
+}
+footer .contact .email{
+    margin-top: 3px;
+}
+footer .contact .name{
+    letter-spacing: 2px;
+    margin-top: 12px;
+}
+footer .site-map{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1vw;
+}
+footer .site-map h2{
+    text-transform: uppercase;
+    font-family: Nunito;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+footer .site-map a{
+    margin-top: 5px;
+    font-family: Nunito;
 }
