@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="stylelogin.css">
+    </head>
+    <body>
+        <div class="hero">
+            <div class="form-box">
+                <div class="button-box">
+                     
+                    <div id="colorclick">
+                        <button type="button" class="click" onclick="login()">Log in</button>
+                        <button type="button" class="click" onclick="register()">Register</button>
+                   </div> 
+                   
+                </div>
+              <div class="multi-image">
+                    <img src="/Images/login/1.png">
+                    <img src="/Images/login/2.png">
+                    <img src="/Images/login/3.png">
+                </div> 
+                <form id="login" class="text-group">
+                    <input type="text" class="input-txt" placeholder="User ID" required>
+                     <input type="text" class="input-txt" placeholder="Enter Password" required>
+                      <input type="checkbox" class="check" ><span>Remember Password</span>
+                      <button type="submit" class="submit">Log in</button>
+                </form>
+                <form id="register" class="text-group">
+                    <input type="text" class="input-txt" placeholder="User ID" required>
+                     <input type="email" class="input-txt" placeholder="Email ID" required>
+                     <input type="text" class="input-txt" placeholder="Enter password" required>
+                      <input type="checkbox" class="check" ><span>Remember Password</span>
+                      <button type="submit" class="submit">Register Now</button>
+                </form>
+            </div>
+            
+        </div>
+        <script>
+            var x=document.getElementById("login");
+            var y=document.getElementById("register");
+            var z=document.getElementById("colorclick")
+            function register(){
+                x.style.left="-400px";
+                y.style.left="50px";
+                z.style.left="110px";
+            } function login(){
+                x.style.left="50px";
+                y.style.left="450px";
+                z.style.left="0";
+            }
+        </script>
+    </body>
+    </html>

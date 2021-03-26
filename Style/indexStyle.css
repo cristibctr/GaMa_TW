@@ -56,7 +56,7 @@ nav ul li:hover{
     overflow: auto;
     width: 100%;
     height: 980px;
-    background-image: url("../Images/imgFirstIndex.png");
+    background-image: url("/Images/Index/imgFirstIndex.png");
     background-color:bisque;
 }
 .intro > div{
@@ -136,7 +136,7 @@ nav ul li:hover{
     height: 700px;
     background-color:bisque;
     background-attachment: fixed;
-    background-image: url("../Images/indexSecondImage.jpg");
+    background-image: url("/Images/Index/indexSecondImage.jpg");
 }
 
 .second-panel .text-area{
@@ -181,7 +181,7 @@ nav ul li:hover{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("../Images/indexThirdImage.jpg");
+    background-image: url("/Images/Index/indexThirdImage.jpg");
 }
 
 .third-panel .text-area{
