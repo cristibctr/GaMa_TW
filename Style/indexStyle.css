@@ -94,9 +94,10 @@ nav ul li:hover{
     height: 60px;
     margin: 200px 0px 0 100px;
 }
-.button a:link{
+.button a:link, .button a:visited{
     text-decoration: none;
     color:rgb(49, 49, 49);
+    transition: background-color 0.5s ease;
 }
 .button > a:hover{
     background: rgba(0, 0, 0, 0.555);
@@ -104,6 +105,7 @@ nav ul li:hover{
     transition: color 0.5s ease;
     transition: background-color 0.5s ease;
 }
+
 .button > a{
     display: flex;
     justify-content: center;

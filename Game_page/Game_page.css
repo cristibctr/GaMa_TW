@@ -12,18 +12,18 @@
     display:flex;
     justify-content: space-around;
 }
+.game .photo-wrapper{
+    margin-right: 20px;
+    max-width: 600px;
+}
 .game .photo{
-    background-color: white;
-    width: 600px;
-    height: 600px;
+    width: 100%;
     border-radius: 10px;
-    background-image: url("/Images/Game_page/Monopoly.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
 }
 .game .info{
     width: 45%;
     display: grid;
+    min-height: 600px;
 }
 .game .info .title{
     font-family: Montserrat;
