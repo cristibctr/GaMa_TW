@@ -52,6 +52,31 @@ nav ul li:hover{
     color: rgb(232, 192, 97);
     transition: color 0.7s;
 }
+.dashboard-button{
+    z-index: 1;
+    bottom: 50px;
+    right: 50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    position: fixed;
+    background-color: rgb(232, 192, 97);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s ease-in;
+}
+.dashboard-button:hover{
+    right: 45px;
+    bottom: 45px;
+    width: 90px;
+    height: 90px;
+    transition: 0.1s ease-in;
+}
+.dashboard-button img{
+    filter: invert(1);
+    margin-bottom: 10px;
+}
 footer{
     /* position:relative; */
     width:100%;

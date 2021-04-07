@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>GAMA</title>
+        <link rel="shortcut icon" href="favicon.ico" type ="image/x-icon"/>
+        <link rel="stylesheet" href="/Style/siteTemplate.css" type="text/css">
+        <link rel="stylesheet" href="Dashboard.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Nunito|Montserrat|Raleway">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet"> 
+    </head>
+    <body>
+        <header>
+            <div class="site-name">
+                <h1><a href="/index.html">GaMa</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <a href="/index.html"><li>Home</li></a>
+                    <a href="/Games_Library/Games_List.html"><li>Game Library</li></a>
+                    <a href="#"><li>Competitions</li></a>
+                    <a href="/Login/login.html"><li>Login</li></a>
+                </ul>
+            </nav>
+        </header>
+        <h1>DASHBOARD</h1>
+        <div class="dashboard">
+            <div class="users">
+                <h1>USERS</h1>
+                <div class="cards-wrapper">
+                    <div class="card">
+                        <div class="username">inachero</div>
+                        <div class="participation">
+                            <h3>Championships</h3>
+                            <p class="champ-particip">Dota 2 Summer</p>
+                            <p class="champ-particip">Scrabble and Win</p>
+                        </div>
+                        <form>
+                            <input type="hidden" name="name" value="inachero">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="username">thumnard</div>
+                        <div class="participation">
+                            <h3>Championships</h3>
+                            <p class="champ-particip">CS GO Winter</p>
+                        </div>
+                        <form>
+                            <input type="hidden" name="name" value="thumnard">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="username">airegeas</div>
+                        <div class="participation">
+                            <h3>Championships</h3>
+                        </div>
+                        <form>
+                            <input type="hidden" name="name" value="airegeas">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="username">neterian</div>
+                        <div class="participation">
+                            <h3>Championships</h3>
+                            <p class="champ-particip">Monopoly World Championship</p>
+                        </div>
+                        <form>
+                            <input type="hidden" name="name" value="neterian">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="username">onercuti</div>
+                        <div class="participation">
+                            <h3>Championships</h3>
+                            <p class="champ-particip">Dota 2 Summer</p>
+                            <p class="champ-particip">CS GO Winter</p>
+                            <p class="champ-particip">Scrabble and Win</p>
+                            <p class="champ-particip">Connect Four under 14</p>
+                        </div>
+                        <form>
+                            <input type="hidden" name="name" value="onercuti">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="username">usturyse</div>
+                        <div class="participation">
+                            <h3>Championships</h3>
+                            <p class="champ-particip">Connect Four under 14</p>
+                            <p class="champ-particip">CS GO Winter</p>
+                            <p class="champ-particip">Monopoly World Championship</p>
+                        </div>
+                        <form>
+                            <input type="hidden" name="name" value="usturyse">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="username">egerthir</div>
+                        <div class="participation">
+                            <h3>Championships</h3>
+                            <p class="champ-particip">Monopoly World Championship</p>
+                        </div>
+                        <form>
+                            <input type="hidden" name="name" value="egerthir">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="competitions">
+                <h1>COMPETITIONS</h1>
+                <div class="cards-wrapper">
+                    <div class="card-wrapper">
+                        <div class="no-overflow card">
+                            <div class="competition">Dota 2 Summer</div>
+                            <div class="game">
+                                <h3>Game:</h3>
+                                <p class="game-name">Dota 2</p>
+                            </div>
+                            <form>
+                                <input type="hidden" name="name" value="Dota 2 Summer">
+                                <input type="submit" name="submit" value="DELETE" class="delete">
+                            </form>
+                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
+                        </div>
+                        <div class="more-info" style="display: none">
+                            <p>Starting date: <span>08-February-2022</span></p>
+                            <p>Ending date: <span>08-March-2022</span></p>
+                            <p>Participants:</p>
+                            <ul>
+                                <li>inachero</li>
+                                <li>onercuti</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="no-overflow card">
+                            <div class="competition">CS GO Winter</div>
+                            <div class="game">
+                                <h3>Game:</h3>
+                                <p class="game-name">CS GO</p>
+                            </div>
+                            <form>
+                                <input type="hidden" name="name" value="CS GO Winter">
+                                <input type="submit" name="submit" value="DELETE" class="delete">
+                            </form>
+                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
+                        </div>
+                        <div class="more-info" style="display: none">
+                            <p>Starting date: <span>26-May-2021</span></p>
+                            <p>Ending date: <span>05-June-2021</span></p>
+                            <p>Participants:</p>
+                            <ul>
+                                <li>thumnard</li>
+                                <li>onercuti</li>
+                                <li>usturyse</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="no-overflow card">
+                            <div class="competition">Scrabble and Win</div>
+                            <div class="game">
+                                <h3>Game:</h3>
+                                <p class="game-name">Scrabble</p>
+                            </div>
+                            <form>
+                                <input type="hidden" name="name" value="Scrabble and Win">
+                                <input type="submit" name="submit" value="DELETE" class="delete">
+                            </form>
+                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
+                        </div>
+                        <div class="more-info" style="display: none">
+                            <p>Starting date: <span>20-April-2021</span></p>
+                            <p>Ending date: <span>30-April-2021</span></p>
+                            <p>Participants:</p>
+                            <ul>
+                                <li>inachero</li>
+                                <li>onercuti</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="no-overflow card">
+                            <div class="competition">Monopoly World Championship</div>
+                            <div class="game">
+                                <h3>Game:</h3>
+                                <p class="game-name">Monopoly</p>
+                            </div>
+                            <form>
+                                <input type="hidden" name="name" value="Monopoly World Championship">
+                                <input type="submit" name="submit" value="DELETE" class="delete">
+                            </form>
+                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
+                        </div>
+                        <div class="more-info" style="display: none">
+                            <p>Starting date: <span>01-August-2021</span></p>
+                            <p>Ending date: <span>01-September-2021</span></p>
+                            <p>Participants:</p>
+                            <ul>
+                                <li>neterian</li>
+                                <li>egerthir</li>
+                                <li>usturyse</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="no-overflow card">
+                            <div class="competition">Connect Four under 14</div>
+                            <div class="game">
+                                <h3>Game:</h3>
+                                <p class="game-name">Connect Four</p>
+                            </div>
+                            <form>
+                                <input type="hidden" name="name" value="Connect Four under 14">
+                                <input type="submit" name="submit" value="DELETE" class="delete">
+                            </form>
+                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
+                        </div>
+                        <div class="more-info" style="display: none">
+                            <p>Starting date: <span>25-April-2021</span></p>
+                            <p>Ending date: <span>26-April-2021</span></p>
+                            <p>Participants:</p>
+                            <ul>
+                                <li>usturyse</li>
+                                <li>onercuti</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="games">
+                <h1>GAMES</h1>
+                <div class="cards-wrapper">
+                    <div class="card">
+                        <div class="game-name">Monopoly</div>
+                        <form>
+                            <input type="hidden" name="name" value="Monopoly">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="game-name">Catan</div>
+                        <form>
+                            <input type="hidden" name="name" value="Catan">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="game-name">Connect Four</div>
+                        <form>
+                            <input type="hidden" name="name" value="Connect Four">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="game-name">Scrabble</div>
+                        <form>
+                            <input type="hidden" name="name" value="Scrabble">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="game-name">CS GO</div>
+                        <form>
+                            <input type="hidden" name="name" value="CS GO">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="game-name">Cyberpunk</div>
+                        <form>
+                            <input type="hidden" name="name" value="Cyberpunk">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="game-name">Dota 2</div>
+                        <form>
+                            <input type="hidden" name="name" value="Dota 2">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                    <div class="card">
+                        <div class="game-name">Half-life Alyx</div>
+                        <form>
+                            <input type="hidden" name="name" value="Half-life Alyx">
+                            <input type="submit" name="submit" value="DELETE" class="delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function showInfo(moreInfo){
+                var parent = moreInfo.parentElement.parentElement;
+                var parentMoreInfo = parent.getElementsByTagName('div')[4];
+                var firstDiv = parent.getElementsByTagName('div')[0];
+                if(parentMoreInfo.style.display == 'none')
+                {
+                    parentMoreInfo.style.display = 'flex';
+                    firstDiv.style.borderRadius = '10px 10px 0px 0px';
+                    moreInfo.innerHTML = 'Show less ▲';
+                }
+                else
+                {
+                    parentMoreInfo.style.display = 'none';
+                    firstDiv.style.borderRadius = '10px';
+                    moreInfo.innerHTML = 'Show more ▼';
+                }
+            }
+        </script>
+        <footer>
+            <div class="media">
+                <a href="/index.html" class="site-name">GAMA</a>
+                <div class="social">
+                    <a href="https://www.facebook.com"><img src="/Images/Index/facebook.png"></a>
+                    <a href="https://www.instagram.com"><img src="/Images/Index/instagram.png"></a>
+                    <a href="https://www.twitter.com"><img src="/Images/Index/twitter.png"></a>
+                    <a href="https://www.reddit.com"><img src="/Images/Index/reddit.png"></a>
+                </div>
+            </div>
+            <div class="contact">
+                <h2>Contact</h2>
+                <p class="name">Bucataru Cristian-Stefan</p>
+                <p class="email">cristian.bucataru@gmail.com</p>
+                <p class="name">Florea Robert-Marian</p>
+                <p class="email">ciric122@gmail.com</p>
+            </div>
+            <div class="site-map">
+                <h2>Site map</h2>
+                <a href="/index.html">Home</a>
+                <a href="/gameLibrary.html">Game Library</a>
+                <a href="/competitions.html">Competitions</a>
+                <a href="/login.html">Login</a>
+            </div>
+        </footer>
+    </body>
+</html>
