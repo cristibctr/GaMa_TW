@@ -24,6 +24,18 @@
                 </ul>
             </nav>
         </header>
+        <h1>STATISTICS</h1>
+        <div class="statistics">
+            <form method="get" action="download.php">
+                <select id="format" name="format">
+                    <option value="pdf" selected>PDF</option>
+                    <option value="csv">CSV</option>
+                    <option value="docbook">DocBook</option>
+                    <option value="minimal">Minimal</option>
+                </select>
+                <button type="submit">DOWNLOAD</button>
+             </form>             
+        </div>
         <h1>DASHBOARD</h1>
         <div class="dashboard">
             <div class="users">
@@ -297,6 +309,7 @@
                 </div>
             </div>
         </div>
+            
         <script>
             function showInfo(moreInfo){
                 var parent = moreInfo.parentElement.parentElement;

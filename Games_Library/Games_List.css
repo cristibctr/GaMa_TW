@@ -66,7 +66,9 @@
     border-bottom: 1px rgb(232, 192, 97) solid;
     transition: 0.4s;
 }
-
+.search input:focus{
+    width: 50%;
+}
 .filter form > div:not(:last-child){
     border-right: 2px rgba(0, 0, 0, .5) solid;
 }
