@@ -183,8 +183,69 @@ width: 130px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+.button-create p{
+    margin-left: 20px;
+margin-top: 5px;
+
+}
 .space2{
     margin-left: 1000px;
     
     
+}
+.link-create{
+       
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(45,46,45);
+}
+.link-create a{
+border-radius: 30px;
+    text-decoration: none;
+  
+}
+.link-create a>div{
+    width: 250px;
+    height: 150px;
+    font-size: 30px;
+    background-color: rgb(232, 192, 97);
+    border-radius: 30px;
+    color: white;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    font-family: Montserrat;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-right:750px;
+}
+.text-create{
+    width: 550px;
+    height: 70px;
+   color:rgb(232, 192, 97);
+    border-radius: 30px;
+    background-color: rgb(45,46,45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.gameself{
+    background-color: rgb(232, 192, 97);
+    display:flex;
+    
+}
+.gameself > div {
+    width: 550px;
+  
+
+}
+.gameself > div >div .space2{
+   margin-left:150px;
 }
