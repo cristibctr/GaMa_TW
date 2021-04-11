@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>GaMa Scholarly HTML report</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <div class="banner">
+        <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+        <div class="status">Proiect GaMa</div>
+      </div>
+      <h1>Game Web Manager</h1>
+    </header>
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          Bucataru Cristian-Stefan
+          &amp;
+          Florea Robert-Marian
+        </dd>
+      </dl>
+    </div>
+    <section id="introduction" role="doc-introduction">
+      <h2>Descrierea proiectului</h2>
+      <p>
+        "Sa se conceapa o aplicatie Web care inventariaza (colectii de) jocuri clasice (fizice) si digitale (electronice), inclusiv realizeaza managementul (meta-)datelor aferente: categorie, dimensiuni, imagini, 
+        destinatari – copii mici, (pre)scolari, adolescenti, adulti, persoane cu nevoi speciale –, reguli, restrictii (e.g., necesita platforma P, se bazeaza exclusiv pe interactiune vocala) si altele. 
+        Sistemul va oferi suport pentru activitati de organizare de campionate vizand diverse jocuri, plus administrarea utilizatorilor. Se vor genera statistici diverse ce pot fi exportate in formate deschise – minimal, CSV, DocBook si PDF.
+        Se va realiza, de asemenea, un clasament al celor mai populare jocuri si grupuri de jucatori, disponibil si ca flux de date RSS.""
+      </p>
+    </section>
+    <section id="tehnologii">
+      <h2>Tehnologii utilizate</h2>
+      <p>
+        Pentru crearea interfetei au fost folosite HTML, CSS si JavaScript.
+      </p>
+      <p>
+        Partea de backend va fi realizata utilizand PHP si JavaScript.
+      </p>
+      <p>
+        Mentinerea datelor va fi realizata prin intermediul unui server de baze de date MySQL.
+      </p>
+    </section>
+    <section id="stocare">
+      <h2>Sistemul de stocare al codului</h2>
+      <p>Pentru stocarea și managementul online al codului-sursa am folosit GitHub:</p>
+      <a href="https://github.com/cristibctr/GaMa_TW">Repository-ul de pe GitHub</a>
+    </section>
+	<section id="ipostaze">
+      <h2>Ipostaze ale utilizatorului</h2>
+      <ul>
+		<li>Un utilizator neinregistrat va putea accesa:</li>
+		<ul>
+			<li>Pagina de start (Home)</li>
+			<li>Libraria de Jocuri</li>
+			<li>Un sistem de sortare a jocurilor</li>
+			<li>Lista cu competitii</li>
+			<li>Log in / Register</li>
+		</ul>
+		<li>Utilizatorul inregistrat v-a debloca urmatoarele functionalitati:</li>
+		<ul>
+			<li>Pagina cu datele fiecarui joc</li>
+			<li>Creearea de competitii</li>
+			<li>Participarea la competitii</li>
+			<li>Log out</li>
+		</ul>
+		<li>Adminii vor avea in plus acces la Dashboard de unde vor putea:</li>
+		<ul>
+			<li>Descarca statisticile in diverse formate</li>
+			<li>Sterge utilizatori</li>
+			<li>Vizualiza competitiile la care participa fiecare utilizator</li>
+			<li>Sterge competitii</li>
+			<li>Vizualiza participantii la fiecare competitie</li>
+			<li>Sterge jocurile</li>
+		</ul>
+	  </ul>
+    </section>
+    <section id="functionalitati">
+      <h2>Functionalitati ale aplicatiei</h2>
+      <ul>
+        <li>Sistem de organizare a competitiilor: Utilizatorii vor putea crea competitii ce vor avea un nume, un joc, o data initiala si una finala, nivelul de dificultate si tipul de joc (Multiplayer / Singleplayer). Restul utilizatorilor inregistrati vor putea participa la aceste competitii.</li>
+        <li>Statistici: Adminii vor avea acces la statisticile generate automat in diverse formate deschise.</li>
+        <li>Flux de date RSS: Anumite informatii precum popularitatea jucatorilor sau a unui joc in cadrul competitiilor vor fi disponibile ca flux de date RSS pentru a fi integrate in cadrul altor site-uri sau pentru uz personal.</li>
+		<li>Posibilitatea de a filtra jocurile in functie de categorie, an sau varsta minima.</li>
+		<li>Posibilitatea de a-si crea cont, de a se conecta si deconecta</li>
+		<li>Existenta unui Administrator ce poate modifica anumite date din baza de date</li>
+      </ul>
+    </section>
+    <section id="diagrame">
+      <h2>Diagrame</h2>
+      <section id="usecase">
+          <h3>Diagrame USECASE</h3>
+          <img src="./Diagrame/Usecase1.png" height=100% width=100%>
+		  <img src="./Diagrame/Usecase2.png" height=100% width=100%>
+      </section>
+      <section id="activitate">
+          <h3>Diagrame de activitate</h3>
+          <img src="./Diagrame/Activitate1.png" height=100% width=100%>
+		  <img src="./Diagrame/Activitate2.png" height=100% width=100%>
+      </section>
+      <section id="sitemap">
+          <h3>SITEMAP</h3>
+          <img src="./Diagrame/Sitemap.png" height=100% width=100%>
+      </section>
+    </section>
+    <section id="sarcini">
+      <h2>Impartirea sarcinilor</h2>
+      <ul>
+        <li>Cristi:
+          <ul style="text-decoration: none">
+			<li>Home</li>
+			<li>Game Library</li>
+			<li>Games description</li>
+			<li>Dashboard Admin</li>
+			<li>Template (Nav + Footer)</li>
+          </ul>
+          <br>
+        </li>
+        <li>Robert:
+          <ul style="text-decoration: none">
+            <li>Login</li>
+			<li>Register</li>
+			<li>Competition create</li>
+			<li>Competitions list + join</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section id="resurse">
+      <h3>Resurse</h3>
+      <ul>
+        <li><a href="https://jigsaw.w3.org/css-validator/">CSS Validator</a></li>
+        <li><a href="https://validator.w3.org/">HTML Validator</a></li>
+        <li><a href="https://www.w3schools.com/">W3Schools</a></li>
+        <li><a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-film.html">Cursuri Tehnologii Web</a></li>
+      </ul>
+  </section>
+  <br><br><br>
+  </body>
+</html>
