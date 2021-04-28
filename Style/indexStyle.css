@@ -36,22 +36,6 @@ header nav {
     letter-spacing: 2px;
 }
 
-nav ul{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-between;
-    list-style-type: none;
-}
-nav ul a li{
-    padding: 24px 26px 24px 26px; 
-    
-}
-nav ul li:hover{
-    color: rgb(232, 192, 97);
-    transition: color 0.7s;
-}
-
 .intro{
     background-attachment: fixed;
     overflow: auto;

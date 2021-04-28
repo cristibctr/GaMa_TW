@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Nunito:wght@400;900&family=Raleway:wght@400;900&family=Roboto:wght@400;900&display=swap');
 
 * {
     padding: 0;
@@ -44,11 +45,11 @@ nav ul{
     justify-content: space-between;
     list-style-type: none;
 }
-nav ul a li{
+nav ul a{
     padding: 24px 26px 24px 26px; 
     
 }
-nav ul li:hover{
+nav ul a:hover{
     color: rgb(232, 192, 97);
     transition: color 0.7s;
 }
