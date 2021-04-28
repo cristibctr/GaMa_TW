@@ -90,7 +90,7 @@ p{
     width: 100%;
     padding:10px 0;
     margin: 5px 0;
-    border_left: 0;
+    border-left: 0;
     border-top: 3px solid rgb(232, 192, 97);
     border-right: 3px solid rgb(232, 192, 97);
     border-bottom: 3px solid rgb(232, 192, 97);
