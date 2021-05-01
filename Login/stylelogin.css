@@ -46,7 +46,6 @@ justify-content: space-around;
       justify-content: space-between;
 }
 
-
 .clickregister{
 
 padding: 2px 3px;
@@ -118,13 +117,7 @@ p{
     margin: 30px 10px 30px 0;
 
 }
-span{
-    color: rgb(12, 12, 8);
-    font-size: 12px;
-    bottom: 62px;
-    position: absolute;
-    font-family: Roboto;
-}
+
 #login{
     left:50px;
 }
