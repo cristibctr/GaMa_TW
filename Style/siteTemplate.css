@@ -157,8 +157,10 @@ footer .site-map a{
 
 nav img{
     filter: invert(100%);
+    min-width: 50px;
     width: 70%;
     display: none;
+    height: auto;
 }
 @media screen and (max-width: 1000px){
     nav img{
