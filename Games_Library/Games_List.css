@@ -15,7 +15,7 @@
     position: relative;
     margin-top: 100px;
     width: 94%;
-    height: 70px;
+    min-height: 70px;
     border-radius: 10px;
     border: 2px rgba(0, 0, 0, .5) solid;
     color: white;
@@ -82,14 +82,14 @@
     position: relative;
     cursor: pointer;
     display: inline-block;
-    padding: 5px 50px 5px 10px;
+    padding: 5px 0px 5px 10px;
 }
 
 .dropdown-check-list ul.items {
     top: 60px;
     position: absolute;
     height: 350px;
-    width: 15%;
+    width: 250px;
     padding: 2px;
     display: none;
     flex-direction: column;
@@ -133,10 +133,7 @@
     position: relative;
     width: 280px;
     height: 370px;
-    background-color: white;
     border-radius: 20px;
-}
-.game-wrapper > div{
     overflow: hidden;
     z-index: 0;
     transition: 0.4s;
@@ -214,7 +211,7 @@
     border-radius: 30px;
     text-decoration: none;
 }
-.game-wrapper a>div{
+.game-wrapper a>div:not(.add-button){
     width: 130px;
     height: 50px;
     background-color: rgb(232, 192, 97);
@@ -227,4 +224,53 @@
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+.add-button{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: rgb(232, 192, 97);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+.add-button img{
+    width: 80px !important;
+    height: 80px !important;
+    z-index: 1 !important;
+    filter: invert(100%) !important;
+    transition: 0.4s;
+}
+.add-button:hover{
+    width: 110px;
+    height: 110px;
+    transition: 0.4s;
+}
+.add-button:hover img{
+    width: 90px !important;
+    height: 90px !important;
+    transition: 0.4s !important;
+}
+@media screen and (max-width: 1000px){
+    .filter form{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+    .filter form > div{
+        width: auto;
+        min-width: 390px;
+    }
+    .filter{
+        border: none;
+    }
+    .filter form > div:not(:last-child){
+        border:none;
+    }
+    .filter form > div{
+        margin-top: 30px;
+    }
+
 }

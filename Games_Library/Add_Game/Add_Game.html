@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>GAMA</title>
+        <link rel="shortcut icon" href="/Images/favicon.ico" type ="image/x-icon"/>
+        <link rel="stylesheet" href="/Style/siteTemplate.css" type="text/css">
+        <link rel="stylesheet" href="Add_Game.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    </head>
+    <body>
+        <header>
+            <div class="site-name">
+                <h1><a href="/index.html">GaMa</a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/Games_Library/Games_List.html">Game Library</a></li>
+                    <li><a href="/Join/join.html">Competitions</a></li>
+                    <li><a href="/Login/login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="main-section">
+            <div class="game">
+                <form method="post" action="addGame.php">
+                    <div class="photo-wrapper">
+                        <label for="image">Choose an image</label>
+                        <input type="file" name="image" id="image" accept="image/*">
+                    </div>
+                    <div class="info">
+                        <div class="title">
+                            <input type="text" placeholder="Title">
+                        </div>
+                        <div class="basic-info">
+                            <ul>
+                                <li><label for="age">Age:</label> <input type="text" name="age" id="age"></li>
+                                <li><label for="year">Release year:</label> <input type="text" name="year" id="year"></li>
+                                <li><label for="minPlayers">Minimum players:</label> <input type="text" name="minPlayers" id="minPlayers"></li>
+                                <li><label for="category">Category:</label> <input type="text" name="category" id="category"></li>
+                                <li><label for="type">Type:</label> <input type="text" name="type" id="type"></li>
+                                <li><label for="restr">Restrictions:</label> <input type="text" name="restr" id="restr"></li>
+                                <li><label for="tAud">Target audience:</label> <input type="text" name="tAud" id="tAud"></li>
+                            </ul>
+                        </div>
+                        <div class="description">
+                            <textarea placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <button>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="/Dashboard/Dashboard.html" class="dashboard-button">
+            <img alt="image" src="/Images/Index/speedometer.svg" style="width:70%;">
+        </a>
+        <footer>
+            <div class="media">
+                <a href="/index.html" class="site-name">GAMA</a>
+                <div class="social">
+                    <a href="https://www.facebook.com"><img alt="image" src="/Images/Index/facebook.png"></a>
+                    <a href="https://www.instagram.com"><img alt="image" src="/Images/Index/instagram.png"></a>
+                    <a href="https://www.twitter.com"><img alt="image" src="/Images/Index/twitter.png"></a>
+                    <a href="https://www.reddit.com"><img alt="image" src="/Images/Index/reddit.png"></a>
+                </div>
+            </div>
+            <div class="contact">
+                <h2>Contact</h2>
+                <p class="name">Bucataru Cristian-Stefan</p>
+                <p class="email">cristian.bucataru@gmail.com</p>
+                <p class="name">Florea Robert-Marian</p>
+                <p class="email">ciric122@gmail.com</p>
+            </div>
+            <div class="site-map">
+                <h2>Site map</h2>
+                <a href="/index.html">Home</a>
+                <a href="/Games_Library/Games_List.html">Game Library</a>
+                <a href="/Join/join.html">Competitions</a>
+                <a href="/Login/login.html">Login</a>
+            </div>
+        </footer>
+    </body>
+</html>
