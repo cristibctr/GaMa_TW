@@ -59,16 +59,16 @@
                           </script>
                     </div>
                     <div class="release_year">
-                        <p>Release year:</p>
-                        <input type="text" name="release-year">
+                        <label for="year">Release year:</label>
+                        <input type="text" name="release-year" id="year">
                     </div>
                     <div class="age">
-                        <p>Age:</p>
-                        <input type="text" name="age">
+                        <label for="age">Age:</label>
+                        <input type="text" name="age" id="age">
                     </div>
                     <div class="search">
-                        <p>Search:</p>
-                        <input type="text" name="search">
+                        <label for="search">Search:</label>
+                        <input type="text" name="search" id="search">
                     </div>
                     <div class="submit">
                         <input type="submit" name="submit" value="➜">
