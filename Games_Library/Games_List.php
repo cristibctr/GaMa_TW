@@ -36,30 +36,16 @@
                             </span>
 
                             <ul class="items">
-                                <li><input type="checkbox" name="shooter" id="shooter"  checked/>
-                                    <label for="shooter">Shooter</label>
-                                </li>
-                                <li><input type="checkbox" name="strategy" id="strategy"  checked/>
-                                    <label for="strategy">Strategy</label>
-                                </li>
-                                <li><input type="checkbox" name="video-game" id="video-game"  checked/>
-                                    <label for="video-game">Video game</label>
-                                </li>
-                                <li><input type="checkbox" name="board-game" id="board-game"  checked/>
-                                    <label for="board-game">Board game</label>
-                                </li>
-                                <li><input type="checkbox" name="family-game" id="family-game"  checked/>
-                                    <label for="family-game">Family game</label>
-                                </li>
-                                <li><input type="checkbox" name="eurogame" id="eurogame"  checked/>
-                                    <label for="eurogame">Eurogame</label>
-                                </li>
-                                <li><input type="checkbox" name="single-player" id="single-player"  checked/>
-                                    <label for="single-player">Single player</label>
-                                </li>
-                                <li><input type="checkbox" name="multi-player" id="multi-player"  checked/>
-                                    <label for="multi-player">Multi player</label>
-                                </li>
+                                <?php
+                                    include 'Categories.php';
+                                    $categories = fetchCategories();
+                                    foreach($categories as $category){
+                                        echo '  <li>
+                                                    <input type="checkbox" name="category[]" id="'. $category .'" value="'. $category .'"  checked/>
+                                                    <label for="'. $category .'">'. $category .'</label>
+                                                </li>';
+                                    }
+                                ?>
                             </ul>
                           </div>
                           <script>
@@ -83,6 +69,9 @@
                     <div class="search">
                         <p>Search:</p>
                         <input type="text" name="search">
+                    </div>
+                    <div class="submit">
+                        <input type="submit" name="submit" value="➜">
                     </div>
                 </form>
             </div>
