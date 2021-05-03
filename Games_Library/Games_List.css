@@ -100,15 +100,17 @@
 .dropdown-check-list ul.items {
     top: 60px;
     position: absolute;
-    padding: 5px;
+    padding: 15px;
     width: auto;
     display: none;
     flex-direction: column;
     justify-content: space-around;
     margin: 0;
+    color: #918A77;
     background-color: rgb(232, 192, 97);
     border-radius: 0px 0px 20px 20px;
     z-index: 1;
+    
 }
 
 .dropdown-check-list ul.items li {
@@ -124,6 +126,12 @@
   }
 .dropdown-check-list li input[type="checkbox"]{
     margin: 15px;
+}
+.items input{
+    display: none;
+}
+.items input:checked + label{
+    color: white;
 }
   /*categories end*/
 .games_grid{
