@@ -3,9 +3,9 @@ function fetchGames(){
     try{
         $dbh = new PDO('mysql:host=localhost;dbname=gama_tw', 'root', '');
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = "SELECT DISTINCT a.name, a.year, a.age, a.cover_image FROM (SELECT name, year, age, cover_image, category FROM games NATURAL JOIN game_category";
         if(!empty($_GET['submit'])){
-            $query = $query . " WHERE name LIKE ? AND age LIKE ? AND year LIKE ?";
+            $query = "SELECT DISTINCT a.name, a.year, a.age, a.cover_image FROM (SELECT name, year, age, cover_image, category FROM games NATURAL JOIN game_category";
+                $query = $query . " WHERE name LIKE ? AND age LIKE ? AND year LIKE ?";
             if(!empty($_GET['category'])){
                 $query = $query . " AND (";
                 foreach($_GET['category'] as $key => $category){
@@ -15,19 +15,25 @@ function fetchGames(){
                 }
                 $query = $query . ")) a";
             }
-        }
+            else{
+                $query = $query . ") a";
+            }
 
-        $sth = $dbh->prepare($query);
-        if(!empty($_GET['submit'])){
+            $sth = $dbh->prepare($query);
             $name = $_GET['search'].'%';
             $age = $_GET['age'].'%';
             $year = $_GET['release-year'].'%';
             $sth -> bindParam(1, $name);
             $sth -> bindParam(2, $age);
             $sth -> bindParam(3, $year);
-            foreach($_GET['category'] as $key => &$category){
-                $sth -> bindParam($key+4, $category);
+            if(!empty($_GET['category'])){
+                foreach($_GET['category'] as $key => &$category){
+                    $sth -> bindParam($key+4, $category);
+                }
             }
+        }
+        else{
+            $sth = $dbh->prepare("SELECT name, year, age, cover_image FROM games");
         }
         $sth->execute();
         

@@ -41,7 +41,7 @@
                                     $categories = fetchCategories();
                                     foreach($categories as $category){
                                         echo '  <li>
-                                                    <input type="checkbox" name="category[]" id="'. $category .'" value="'. $category .'"  checked/>
+                                                    <input type="checkbox" name="category[]" id="'. $category .'" value="'. $category .'"/>
                                                     <label for="'. $category .'">'. $category .'</label>
                                                 </li>';
                                     }
