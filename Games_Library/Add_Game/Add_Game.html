@@ -24,14 +24,14 @@
         </header>
         <div class="main-section">
             <div class="game">
-                <form method="post" action="addGame.php">
+                <form method="post" action="addGame.php" enctype="multipart/form-data">
                     <div class="photo-wrapper">
                         <label for="image">Choose an image</label>
                         <input type="file" name="image" id="image" accept="image/*">
                     </div>
                     <div class="info">
                         <div class="title">
-                            <input type="text" placeholder="Title">
+                            <input type="text" placeholder="Title" name="title">
                         </div>
                         <div class="basic-info">
                             <ul>
@@ -39,17 +39,21 @@
                                 <li><label for="year">Release year:</label> <input type="text" name="year" id="year"></li>
                                 <li><label for="minPlayers">Minimum players:</label> <input type="text" name="minPlayers" id="minPlayers"></li>
                                 <li><label for="category">Category:</label> <input type="text" name="category" id="category"></li>
-                                <li><label for="type">Type:</label> <input type="text" name="type" id="type"></li>
+                                <li class="type"> 
+                                    <p>Type:</p> 
+                                    <input type="radio" name="type" id="Board-Game" value="Board-Game"> <label for="Board-Game">Board-Game</label>
+                                    <input type="radio" name="type" id="Video-Game" value="Video-Game"> <label for="Video-Game">Video-Game</label>
+                                </li>
                                 <li><label for="restr">Restrictions:</label> <input type="text" name="restr" id="restr"></li>
                                 <li><label for="tAud">Target audience:</label> <input type="text" name="tAud" id="tAud"></li>
                             </ul>
                         </div>
                         <div class="description">
-                            <textarea placeholder="Description"></textarea>
+                            <textarea placeholder="Description" name="description"></textarea>
                         </div>
                     </div>
                     <div class="button">
-                        <button>Submit</button>
+                        <input type="submit" value="Submit" name="upload">
                     </div>
                 </form>
             </div>
