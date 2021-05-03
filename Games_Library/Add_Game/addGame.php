@@ -44,11 +44,11 @@
                 $sth->execute(array(":title" => $title, ":category" => $param));
             $query = "INSERT INTO target_audience (name, target) VALUES (:title, :tAud)";
             $sth = $dbh->prepare($query);
-            $tAud = str_replace(" ", "", $tAud);
+            $tAud = str_replace(", ", ",", $tAud);
             $tAudExploded = explode(",", $tAud);
             foreach($tAudExploded as $param)
                 $sth->execute(array(":title" => $title, ":tAud" => $param));
-            header("Location: /Games_Library/Games_List.html");
+            header("Location: /Games_Library/Games_List.php");
         }
         catch(PDOException $e){
             error_log('PDOException - ' . $e->getMessage(), 0);
