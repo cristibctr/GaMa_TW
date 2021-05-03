@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 12:00 PM
+-- Generation Time: May 03, 2021 at 12:44 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -35,16 +35,23 @@ CREATE TABLE `games` (
   `type` varchar(100) NOT NULL,
   `restrictions` varchar(100) NOT NULL,
   `description` text NOT NULL,
-  `image` varchar(50) NOT NULL
+  `cover_image` varchar(50) NOT NULL,
+  `game_image` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `games`
 --
 
-INSERT INTO `games` (`name`, `year`, `age`, `players`, `type`, `restrictions`, `description`, `image`) VALUES
-('Le game', 2024, 18, 4, 'Video-Game', 'None', 'This is the first game in the Le game series to be released.', 'ruins.png'),
-('Le game 2', 2034, 16, 2, 'Board-game', 'you need hands', 'The second iteration in the well known series of \"Le game\"', 'bigmarker.png');
+INSERT INTO `games` (`name`, `year`, `age`, `players`, `type`, `restrictions`, `description`, `cover_image`, `game_image`) VALUES
+('Catan', 2003, 10, 2, 'Board-Game', 'none', 'Catan, previously known as The Settlers of Catan or simply Settlers, is a multiplayer board game designed by Klaus Teuber. It was first published in 1995 in Germany by Franckh-Kosmos Verlag (Kosmos) as Die Siedler von Catan. Players take on the roles of settlers, each attempting to build and develop holdings while trading and acquiring resources. Players gain points as their settlements grow; the first to reach a set number of points, typically 10, wins. The game and its many expansions are also published by Catan Studio, Filosofia, GP, Inc., 999 Games, Κάισσα, and Devir. ', 'Catan-2015-boxart.jpg', 'catan.jpg'),
+('Connect Four', 2006, 6, 2, 'Board-Game', 'none', 'Connect Four is a two-player connection board game, in which the players choose a color and then take turns dropping colored discs into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column. The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four of one\'s own discs. Connect Four is a solved game. The first player can always win by playing the right moves. ', 'connect-four.jpg', 'connect_four.jpg'),
+('CS GO', 2012, 18, 10, 'Video-Game', 'Microphone required', 'Counter-Strike: Global Offensive (CS:GO) is a multiplayer first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series. Developed for over two years, Global Offensive was released for Windows, macOS, Xbox 360, and PlayStation 3 in August 2012, and for Linux in 2014. Valve still regularly updates the game, both with smaller balancing patches and larger content additions.\r\nThe most common game modes involve the Terrorists planting a bomb while Counter-Terrorists attempt to stop them, or Counter-Terrorists attempting to rescue hostages that the Terrorists have captured. ', 'csgo.jpg', 'csgo_game.jpg'),
+('Cyberpunk', 2020, 18, 1, 'Video-Game', 'Graphic scenes', 'Cyberpunk 2077 is a 2020 action role-playing video game developed and published by CD Projekt. The story takes place in Night City, an open world set in the Cyberpunk universe. Players assume the first-person perspective of a customisable mercenary known as V, who can acquire skills in hacking and machinery with options for melee and ranged combat. The game was developed using the REDengine 4 by a team of around 500 people, exceeding the number that worked on the studio\'s previous game The Witcher 3: Wild Hunt (2015). It received praise for its narrative, setting, and graphics, although some of its gameplay elements received mixed responses, while its themes and representation of transgender characters received scrutiny. Cyberpunk 2077 was also widely criticized for bugs, particularly in the console versions which suffered from performance issues; Sony removed it from the PlayStation Store on 17 December 2020. CD Projekt became subject to investigations and class-action lawsuits for their perceived attempts in downplaying the severity of the game\'s technical issues before release. ', 'cyberpunk.jpeg', 'cyberpunk.jpg'),
+('DOTA 2', 2013, 16, 10, 'Video-Game', 'None', 'Dota 2 is a multiplayer online battle arena (MOBA) video game developed and published by Valve. The game is a sequel to Defense of the Ancients (DotA), which was a community-created mod for Blizzard Entertainment\'s Warcraft III: Reign of Chaos. Dota 2 is played in matches between two teams of five players, with each team occupying and defending their own separate base on the map. Each of the ten players independently controls a powerful character, known as a \"hero\", who all have unique abilities and differing styles of play. During a match players collect experience points and items for their heroes to successfully defeat the opposing team\'s heroes in player versus player combat. A team wins by being the first to destroy the other team\'s \"Ancient\", a large structure located within their base. ', 'Dota2.jpg', 'dota2.png'),
+('HALF-LIFE ALYX', 2020, 18, 1, 'Video-Game', 'VR headset needed', 'Half-Life: Alyx is a 2020 virtual reality (VR) first-person shooter developed and published by Valve. Set between the events of Half-Life (1998) and Half-Life 2 (2004), players control Alyx Vance on a mission to seize a superweapon belonging to the alien Combine. Players use VR to interact with the environment and fight enemies, using \"gravity gloves\" to manipulate objects, similarly to the gravity gun from Half-Life 2. Traditional Half-Life elements return, such as physics puzzles, combat, exploration and survival horror elements. ', 'HF_Alyx.jpg', 'half-life-alyx.jpg'),
+('Monopoly', 2005, 10, 3, 'Board-Game', 'Requires a lot of time to finish', 'Monopoly is a board game currently published by Hasbro. In the game, players roll two six-sided dice to move around the game board, buying and trading properties, and developing them with houses and hotels. Players collect rent from their opponents, with the goal being to drive them into bankruptcy. Money can also be gained or lost through Chance and Community Chest cards, and tax squares; players can end up in jail, from which they cannot move until they have met one of several conditions. The game has numerous house rules, and hundreds of different editions exist, as well as many spin-offs and related media. Monopoly has become a part of international popular culture, having been licensed locally in more than 103 countries and printed in more than 37 languages. ', 'Monopoly.jpg', 'Monopoly.jpg'),
+('Scrabble', 1986, 5, 2, 'Board-Game', 'Large vocabulary', 'Scrabble is a word game in which two to four players score points by placing tiles, each bearing a single letter, onto a game board divided into a 15×15 grid of squares. The tiles must form words that, in crossword fashion, read left to right in rows or downward in columns, and be included in a standard dictionary or lexicon. The game is played by two to four players on a square game board imprinted with a 15×15 grid of cells (individually known as \"squares\"), each of which accommodates a single letter tile. In official club and tournament games, play is between two players or, occasionally, between two teams, each of which collaborates on a single rack.', 'scrabble.jpg', 'scrabble.jpg');
 
 -- --------------------------------------------------------
 
@@ -62,11 +69,20 @@ CREATE TABLE `game_category` (
 --
 
 INSERT INTO `game_category` (`name`, `category`) VALUES
-('Le game', 'MOBA'),
-('Le game', 'notgame'),
-('Le game', 'isgame'),
-('Le game 2', 'Shooter'),
-('Le game 2', 'co-op');
+('Monopoly', 'Economic simulation'),
+('Catan', 'Family-Game'),
+('Connect Four', 'Family-game'),
+('Scrabble', 'Word game'),
+('CS GO', 'Multiplayer'),
+('CS GO', 'Shooter'),
+('CS GO', 'Esport'),
+('Cyberpunk', 'Single-player'),
+('Cyberpunk', 'Action'),
+('Cyberpunk', 'RPG'),
+('DOTA 2', 'Multiplayer'),
+('DOTA 2', 'MOBA'),
+('HALF-LIFE ALYX', 'Single-player'),
+('HALF-LIFE ALYX', 'First-person shooter');
 
 -- --------------------------------------------------------
 
@@ -84,10 +100,21 @@ CREATE TABLE `target_audience` (
 --
 
 INSERT INTO `target_audience` (`name`, `target`) VALUES
-('Le game', 'Adults'),
-('Le game', 'Kids'),
-('Le game 2', 'Elderly'),
-('Le game 2', 'Teens');
+('Monopoly', 'Families'),
+('Monopoly', 'Teens'),
+('Catan', 'Family'),
+('Catan', 'Children'),
+('Catan', 'Teens'),
+('Connect Four', 'Children'),
+('Scrabble', 'Allages'),
+('CS GO', 'Teens'),
+('CS GO', 'Adults'),
+('Cyberpunk', 'Teens'),
+('Cyberpunk', 'Adults'),
+('DOTA 2', 'Teens'),
+('DOTA 2', 'Adults'),
+('HALF-LIFE ALYX', 'Adults'),
+('HALF-LIFE ALYX', 'VRenthusiasts');
 
 --
 -- Indexes for dumped tables
