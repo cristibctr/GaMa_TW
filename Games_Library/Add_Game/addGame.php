@@ -1,4 +1,6 @@
 <?php
+    require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
+
     if(isset($_POST['upload'])){
         $title = $_POST['title'];
         $cover_image = $_FILES['cover_image']['name'];
@@ -14,8 +16,7 @@
         $target_cover = $_SERVER['DOCUMENT_ROOT'] . "/Images/Games_List/" . basename($cover_image);
         $target_game = $_SERVER['DOCUMENT_ROOT'] . "/Images/Game_page/" . basename($game_image);
         try{
-            $dbh = new PDO('mysql:host=localhost;dbname=gama_tw', 'root', '');
-            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $dbh = DBConnect::getConnection();
             $sth = $dbh->prepare("SELECT name FROM games WHERE name=?");
             $sth->execute([$title]);
             if($sth->rowCount() > 0){

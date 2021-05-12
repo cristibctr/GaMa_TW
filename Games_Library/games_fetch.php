@@ -1,8 +1,9 @@
 <?php
+    require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
+
 function fetchGames(){
     try{
-        $dbh = new PDO('mysql:host=localhost;dbname=gama_tw', 'root', '');
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = DBConnect::getConnection();
         if(!empty($_GET['submit'])){
             $query = "SELECT DISTINCT a.name, a.year, a.age, a.cover_image FROM (SELECT name, year, age, cover_image, category FROM games NATURAL JOIN game_category";
                 $query = $query . " WHERE name LIKE ? AND age LIKE ? AND year LIKE ?";

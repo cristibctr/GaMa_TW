@@ -17,14 +17,20 @@
                 <ul>
                     <li><a href="/index.php"><span>Home</span><img alt="navImage" src="/Images/Nav/home.png"></a></li>
                     <li><a href="/Games_Library/Games_List.php" style="color: rgb(232, 192, 97)"><span>Game Library</span><img alt="navImage" src="/Images/Nav/library.png"></a></li>
-                    <li><a href="/Join/join.html"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
-                    <li><a href="/Login/login.html"><span>Login</span><img alt="navImage" src="/Images/Nav/login.png"></a></li>
+                    <li><a href="/Join/join.php"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
+                    <?php
+                        session_start();
+                        if(isset($_SESSION['username']))
+                            echo '<li><a href="/Login/logout.php"><span>Logout</span><img alt="navImage" src="/Images/Nav/logout.png"></a></li>';
+                        else
+                            echo '<li><a href="/Login/login.php"><span>Login</span><img alt="navImage" src="/Images/Nav/login.png"></a></li>';
+                    ?>
                 </ul>
             </nav>
         </header>
         <div class="main_section"> 
             <div class="filter">
-                <form>
+                <form method="get">
                     <div class="category">
                         <p>Category:</p>
                         <div id="list1" class="dropdown-check-list" tabindex="100">
@@ -81,18 +87,26 @@
                     include 'games_fetch.php';
                     fetchGames();
                 ?>
-                <div class="game-wrapper">
-                    <a href="Add_Game/Add_Game.html">
-                        <div class="add-button">
-                            <img alt="add button" src="/Images/Games_List/plus.png">
-                        </div>
-                    </a>
-                </div>
+                <?php
+                    if(isset($_SESSION['username'])){
+                        echo    '<div class="game-wrapper">
+                                    <a href="Add_Game/Add_Game.php">
+                                        <div class="add-button">
+                                            <img alt="add button" src="/Images/Games_List/plus.png">
+                                        </div>
+                                    </a>
+                                </div>';
+                    }
+                ?>
+                
             </div>
         </div>
-        <a href="../Dashboard/Dashboard.html" class="dashboard-button">
-            <img alt="image" src="../Images/Index/speedometer.svg" style="width:70%;">
-        </a>
+        <?php
+        if(isset($_SESSION['username']) && $_SESSION['admin'] == 1)
+        echo    '<a href="/Dashboard/dashboard.php" class="dashboard-button">
+                    <img alt="image" src="/Images/Index/speedometer.svg" style="width:70%;" >
+                </a>';
+        ?>
         <footer>
             <div class="media">
                 <a href="../index.php" class="site-name">GAMA</a>
@@ -114,8 +128,8 @@
                 <h2>Site map</h2>
                 <a href="../index.php">Home</a>
                 <a href="../Games_Library/Games_List.php">Game Library</a>
-                <a href="../Join/join.html">Competitions</a>
-                <a href="../Login/login.html">Login</a>
+                <a href="../Join/join.php">Competitions</a>
+                <a href="../Login/login.php">Login</a>
             </div>
         </footer>
     </body>

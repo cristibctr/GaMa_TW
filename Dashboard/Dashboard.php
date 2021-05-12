@@ -1,3 +1,23 @@
+<?php
+    require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
+    try{
+        $dbh = DBConnect::getConnection();
+        $query = "SELECT name FROM games";
+        $sth = $dbh->prepare($query);
+        $sth->execute();
+    } 
+    catch (PDOException $e){
+        error_log('PDOException - ' . $e->getMessage(), 0);
+        http_response_code(500);
+        die('Error establishing connection with database');
+    }
+    session_start();
+    if(!isset($_SESSION['username']) || $_SESSION['admin'] == 0){
+        header("location: /index.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,8 +38,8 @@
                 <ul>
                     <li><a href="/index.php"><span>Home</span><img alt="navImage" src="/Images/Nav/home.png"></a></li>
                     <li><a href="/Games_Library/Games_List.php"><span>Game Library</span><img alt="navImage" src="/Images/Nav/library.png"></a></li>
-                    <li><a href="/Join/join.html"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
-                    <li><a href="/Login/login.html"><span>Login</span><img alt="navImage" src="/Images/Nav/login.png"></a></li>
+                    <li><a href="/Join/join.php"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
+                    <li><a href="/Login/logout.php"><span>Logout</span><img alt="navImage" src="/Images/Nav/logout.png"></a></li>
                 </ul>
             </nav>
         </header>
@@ -47,7 +67,7 @@
                             <p class="champ-particip">Dota 2 Summer</p>
                             <p class="champ-particip">Scrabble and Win</p>
                         </div>
-                        <form>
+                        <form method="POST">
                             <input type="hidden" name="name" value="inachero">
                             <input type="submit" name="submit" value="DELETE" class="delete">
                         </form>
@@ -249,62 +269,17 @@
             <div class="games">
                 <h1>GAMES</h1>
                 <div class="cards-wrapper">
-                    <div class="card">
-                        <div class="game-name">Monopoly</div>
-                        <form>
-                            <input type="hidden" name="name" value="Monopoly">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="game-name">Catan</div>
-                        <form>
-                            <input type="hidden" name="name" value="Catan">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="game-name">Connect Four</div>
-                        <form>
-                            <input type="hidden" name="name" value="Connect Four">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="game-name">Scrabble</div>
-                        <form>
-                            <input type="hidden" name="name" value="Scrabble">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="game-name">CS GO</div>
-                        <form>
-                            <input type="hidden" name="name" value="CS GO">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="game-name">Cyberpunk</div>
-                        <form>
-                            <input type="hidden" name="name" value="Cyberpunk">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="game-name">Dota 2</div>
-                        <form>
-                            <input type="hidden" name="name" value="Dota 2">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="game-name">Half-life Alyx</div>
-                        <form>
-                            <input type="hidden" name="name" value="Half-life Alyx">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
+                    <?php
+                        while($row = $sth->fetch(PDO::FETCH_ASSOC)){
+                            echo    '<div class="card">
+                                        <div class="game-name">'.$row['name'].'</div>
+                                        <form method="POST" action="DeleteGame.php">
+                                            <input type="hidden" name="name" value="'.$row['name'].'">
+                                            <input type="submit" name="submit" value="DELETE" class="delete">
+                                        </form>
+                                    </div>';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -349,8 +324,8 @@
                 <h2>Site map</h2>
                 <a href="../index.php">Home</a>
                 <a href="../Games_Library/Games_List.php">Game Library</a>
-                <a href="../Join/join.html">Competitions</a>
-                <a href="../Login/login.html">Login</a>
+                <a href="../Join/join.php">Competitions</a>
+                <a href="../Login/login.php">Login</a>
             </div>
         </footer>
     </body>

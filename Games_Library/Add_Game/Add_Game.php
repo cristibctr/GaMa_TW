@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header("location: /index.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,8 +24,8 @@
                 <ul>
                     <li><a href="/index.php"><span>Home</span><img alt="navImage" src="/Images/Nav/home.png"></a></li>
                     <li><a href="/Games_Library/Games_List.php"><span>Game Library</span><img alt="navImage" src="/Images/Nav/library.png"></a></li>
-                    <li><a href="/Join/join.html"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
-                    <li><a href="/Login/login.html"><span>Login</span><img alt="navImage" src="/Images/Nav/login.png"></a></li>
+                    <li><a href="/Join/join.php"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
+                    <li><a href="/Login/logout.php"><span>Logout</span><img alt="navImage" src="/Images/Nav/logout.png"></a></li>
                 </ul>
             </nav>
         </header>
@@ -33,21 +40,21 @@
                     </div>
                     <div class="info">
                         <div class="title">
-                            <input type="text" placeholder="Title" name="title">
+                            <input type="text" placeholder="Title" name="title" required>
                         </div>
                         <div class="basic-info">
                             <ul>
-                                <li><label for="age">Age:</label> <input type="text" name="age" id="age"></li>
-                                <li><label for="year">Release year:</label> <input type="text" name="year" id="year"></li>
-                                <li><label for="minPlayers">Minimum players:</label> <input type="text" name="minPlayers" id="minPlayers"></li>
-                                <li><label for="category">Category:</label> <input type="text" name="category" id="category"></li>
+                                <li><label for="age">Age:</label> <input type="text" name="age" id="age" required></li>
+                                <li><label for="year">Release year:</label> <input type="text" name="year" id="year" required></li>
+                                <li><label for="minPlayers">Minimum players:</label> <input type="text" name="minPlayers" id="minPlayers" required></li>
+                                <li><label for="category">Category:</label> <input type="text" name="category" id="category" required></li>
                                 <li class="type"> 
                                     <p>Type:</p> 
-                                    <input type="radio" name="type" id="Board-Game" value="Board-Game"> <label for="Board-Game">Board-Game</label>
+                                    <input type="radio" name="type" id="Board-Game" value="Board-Game" required> <label for="Board-Game">Board-Game</label>
                                     <input type="radio" name="type" id="Video-Game" value="Video-Game"> <label for="Video-Game">Video-Game</label>
                                 </li>
-                                <li><label for="restr">Restrictions:</label> <input type="text" name="restr" id="restr"></li>
-                                <li><label for="tAud">Target audience:</label> <input type="text" name="tAud" id="tAud"></li>
+                                <li><label for="restr">Restrictions:</label> <input type="text" name="restr" id="restr" required></li>
+                                <li><label for="tAud">Target audience:</label> <input type="text" name="tAud" id="tAud" required></li>
                             </ul>
                         </div>
                         <div class="description">
@@ -60,9 +67,12 @@
                 </form>
             </div>
         </div>
-        <a href="/Dashboard/Dashboard.html" class="dashboard-button">
-            <img alt="image" src="/Images/Index/speedometer.svg" style="width:70%;">
-        </a>
+        <?php
+        if(isset($_SESSION['username']) && $_SESSION['admin'] == 1)
+        echo    '<a href="/Dashboard/dashboard.php" class="dashboard-button">
+                    <img alt="image" src="/Images/Index/speedometer.svg" style="width:70%;" >
+                </a>';
+        ?>
         <footer>
             <div class="media">
                 <a href="/index.php" class="site-name">GAMA</a>
@@ -84,8 +94,8 @@
                 <h2>Site map</h2>
                 <a href="/index.php">Home</a>
                 <a href="/Games_Library/Games_List.php">Game Library</a>
-                <a href="/Join/join.html">Competitions</a>
-                <a href="/Login/login.html">Login</a>
+                <a href="/Join/join.php">Competitions</a>
+                <a href="/Login/login.php">Login</a>
             </div>
         </footer>
     </body>

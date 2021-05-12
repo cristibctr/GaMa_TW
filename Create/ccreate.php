@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header("location: /index.php");
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,8 +24,8 @@
                 <ul>
                     <li><a href="/index.php"><span>Home</span><img alt="navImage" src="/Images/Nav/home.png"></a></li>
                     <li><a href="/Games_Library/Games_List.php"><span>Game Library</span><img alt="navImage" src="/Images/Nav/library.png"></a></li>
-                    <li><a href="/Join/join.html"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
-                    <li><a href="/Login/login.html"><span>Login</span><img alt="navImage" src="/Images/Nav/login.png"></a></li>
+                    <li><a href="/Join/join.php"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
+                    <li><a href="/Login/logout.php"><span>Logout</span><img alt="navImage" src="/Images/Nav/logout.png"></a></li>
                 </ul>
             </nav>
         </header>
@@ -109,9 +116,12 @@
         </div>
 
     </div>
-    <a href="../Dashboard/Dashboard.html" class="dashboard-button">
-        <img alt="image" src="../Images/Index/speedometer.svg" style="width:70%;">
-    </a>
+    <?php
+        if(isset($_SESSION['username']) && $_SESSION['admin'] == 1)
+        echo    '<a href="/Dashboard/dashboard.php" class="dashboard-button">
+                    <img alt="image" src="/Images/Index/speedometer.svg" style="width:70%;" >
+                </a>';
+    ?>
      <footer>
             <div class="media">
                 <a href="../index.php" class="site-name">GAMA</a>
@@ -133,8 +143,8 @@
                 <h2>Site map</h2>
                 <a href="../index.php">Home</a>
                 <a href="../Games_Library/Games_List.php">Game Library</a>
-                <a href="../Join/join.html">Competitions</a>
-                <a href="../Login/login.html">Login</a>
+                <a href="../Join/join.php">Competitions</a>
+                <a href="../Login/login.php">Login</a>
             </div>
         </footer>
 </body>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['username'])){
+    header("location: /index.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,8 +25,8 @@
                 <ul>
                     <li><a href="/index.php"><span>Home</span><img alt="navImage" src="/Images/Nav/home.png"></a></li>
                     <li><a href="/Games_Library/Games_List.php"><span>Game Library</span><img alt="navImage" src="/Images/Nav/library.png"></a></li>
-                    <li><a href="/Join/join.html"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
-                    <li><a href="/Login/login.html" style="color: rgb(232, 192, 97)"><span>Login</span><img alt="navImage" src="/Images/Nav/login.png"></a></li>
+                    <li><a href="/Join/join.php"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
+                    <li><a href="/Login/login.php" style="color: rgb(232, 192, 97)"><span>Login</span><img alt="navImage" src="/Images/Nav/login.png"></a></li>
                 </ul>
             </nav>
         </header>
@@ -30,46 +38,42 @@
                  
                
                
-                         <form id="login" class="text-group">
+                         <form id="login" class="text-group" method="POST" action="Register.php">
                    
                                 <p>Username</p>
-                                 <input type="text" class="input-txt"  required><br><br>
-                             <label for="psw"><b>Password</b></label>
-                                <input type="text" class="input-txt"  required>
+                                    <input type="text" class="input-txt"  name="uname" required><br><br>
+                                    <label for="psw"><b>Password</b></label>
+                                    <input type="password" class="input-txt" name="psw" required>
                      
-                                    <button type="submit" class="submit">SUBMIT</button><br><br>
+                                    <button type="submit" class="submit" name="login">SUBMIT</button><br><br>
                                                 <p>Don't have an account yet?</p>
                                     <button type="button" class="clickregister" onclick="register()">Register</button>
                                 </form>
                 </div>
 
-         <div class="titlepage">
-             
-                <form id="register" class="text-group">
+            <div class="titlepage">
+            
+                <form id="register" class="text-group" method="POST" action="Register.php">
                     
 
-                   <label for="uname"><b>Enter Username</b></label>
+                    <label for="uname"><b>Enter Username</b></label>
 
                     <input type="text" class="input-txt" name="uname" id="uname" required><br><br>
                     
                     <label for="email"><b>Enter Email</b></label>  
 
-                     <input type="email" class="input-txt" name="umame" id="email" required><br><br>
+                    <input type="email" class="input-txt" name="email" id="email" required><br><br>
 
-                     <label for="psw"><b>Enter password</b></label>
+                    <label for="psw"><b>Enter password</b></label>
 
-                     <input type="password" class="input-txt" name="psw" id="psw" required>
+                    <input type="password" class="input-txt" name="psw" id="psw" required>
 
-                      
-                      <input type="checkbox" class="check"  name="check" id="check">
-                      
-                      <label for="check">Remember me</label>
-
-                     <button type="submit" class="submit">Register Now</button>
-                  
+                    <button type="submit" class="submit" name="register">Register Now</button>
+                
         
-                </form></div>
+                </form>
             </div>
+        </div>
             
         </div>
         <script>
@@ -86,9 +90,6 @@
             
             } 
         </script>
-        <a href="../Dashboard/Dashboard.html" class="dashboard-button">
-            <img alt="image" src="../Images/Index/speedometer.svg" style="width:70%;">
-        </a>
         <footer>
             <div class="media">
                 <a href="../index.php" class="site-name">GAMA</a>
@@ -110,8 +111,8 @@
                 <h2>Site map</h2>
                 <a href="../index.php">Home</a>
                 <a href="../Games_Library/Games_List.php">Game Library</a>
-                <a href="../Join/join.html">Competitions</a>
-                <a href="../Login/login.html">Login</a>
+                <a href="../Join/join.php">Competitions</a>
+                <a href="../Login/login.php">Login</a>
             </div>
         </footer>
     </body>
