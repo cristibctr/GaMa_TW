@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 12:44 PM
+-- Generation Time: May 12, 2021 at 03:41 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -116,6 +116,27 @@ INSERT INTO `target_audience` (`name`, `target`) VALUES
 ('HALF-LIFE ALYX', 'Adults'),
 ('HALF-LIFE ALYX', 'VRenthusiasts');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`username`, `email`, `password`, `admin`) VALUES
+('admin', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 1),
+('cristi', 'cristian.bucataru@yahoo.com', 'b6765a6b73ac07b4d6c390bac3c865c6', 0);
+
 --
 -- Indexes for dumped tables
 --
@@ -137,6 +158,12 @@ ALTER TABLE `game_category`
 --
 ALTER TABLE `target_audience`
   ADD KEY `target_fk` (`name`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Constraints for dumped tables
