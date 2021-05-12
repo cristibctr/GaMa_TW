@@ -38,7 +38,7 @@ if(isset($_SESSION['username'])){
                  
                
                
-                         <form id="login" class="text-group" method="POST" action="Register.php">
+                         <form id="login" class="text-group" method="POST" action="LogAndReg.php">
                    
                                 <p>Username</p>
                                     <input type="text" class="input-txt"  name="uname" required><br><br>
@@ -53,7 +53,7 @@ if(isset($_SESSION['username'])){
 
             <div class="titlepage">
             
-                <form id="register" class="text-group" method="POST" action="Register.php">
+                <form id="register" class="text-group" method="POST" action="LogAndReg.php">
                     
 
                     <label for="uname"><b>Enter Username</b></label>
