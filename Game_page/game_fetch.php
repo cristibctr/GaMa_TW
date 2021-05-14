@@ -1,8 +1,8 @@
 <?php
+require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
 function fetchGame($gameName){
     try{
-        $dbh = new PDO('mysql:host=localhost;dbname=gama_tw', 'root', '');
-        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $dbh = DBConnect::getConnection();
         $stmt = $dbh->prepare("SELECT * FROM games WHERE name=?");
         $stmt->execute([$gameName]);
         $stmtCategory = $dbh->prepare("SELECT * FROM game_category WHERE name=?");

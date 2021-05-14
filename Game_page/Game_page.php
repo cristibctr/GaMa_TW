@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
+    try{
+        $dbh = DBConnect::getConnection();
+        $sth = $dbh->prepare("SELECT vote_type FROM user_vote WHERE username=? AND game_name=?");
+        $username = $_SESSION['username'];
+        $gameName = $_GET['name'];
+        $sth->bindParam(1, $username);
+        $sth->bindParam(2, $gameName);
+        $sth->execute();
+        $voteType = 0;
+        if($sth->rowCount() > 0)
+            $voteType = $sth->fetch(PDO::FETCH_ASSOC)['vote_type'];
+    }
+    catch(PDOException $e){
+        error_log('PDOException - ' . $e->getMessage(), 0);
+        http_response_code(500);
+        die('Error establishing connection with database');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,7 +41,6 @@
                     <li><a href="/Games_Library/Games_List.php"><span>Game Library</span><img alt="navImage" src="/Images/Nav/library.png"></a></li>
                     <li><a href="/Join/join.php"><span>Competitions</span><img alt="navImage" src="/Images/Nav/competition.png"></a></li>
                     <?php
-                        session_start();
                         if(isset($_SESSION['username']))
                             echo '<li><a href="/Login/logout.php"><span>Logout</span><img alt="navImage" src="/Images/Nav/logout.png"></a></li>';
                         else
@@ -34,8 +55,33 @@
         ?>
         <div class="main-section">
             <div class="game">
-                <div class="photo-wrapper">
-                    <img alt="image" class="photo" src ="../Images/Game_page/<?php echo $gameInfo['game_image'];?>">  
+                <div class="button-image-wrapper">
+                    <div class="vote-buttons">
+                        <form method="POST" action="game_vote.php">
+                            <input type="hidden" name="game_name" value="<?php echo $gameInfo['name'];?>">
+                            <?php
+                                if($voteType == 'upvote'){
+                                    echo
+                                    '<input style="filter: invert(81%) sepia(47%) saturate(531%) hue-rotate(345deg) brightness(95%) contrast(91%);" class="upvote" type="image" name="submit_upvote" value="upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
+                                    <input class="downvote" type="image" name="submit_downvote" value="downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
+                                }
+                                else if($voteType == 'downvote'){
+                                    echo
+                                    '<input class="upvote" type="image" name="submit_upvote" value="upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
+                                    <input style="filter: invert(81%) sepia(47%) saturate(531%) hue-rotate(345deg) brightness(95%) contrast(91%);" class="downvote" type="image" name="submit_downvote" value="downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
+                                }
+                                else{
+                                    echo
+                                    '<input class="upvote" type="image" name="submit_upvote" value="upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
+                                    <input class="downvote" type="image" name="submit_downvote" value="downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
+                                }
+                            ?>
+                            
+                        </form>
+                    </div>
+                    <div class="photo-wrapper">
+                        <img alt="image" class="photo" src ="../Images/Game_page/<?php echo $gameInfo['game_image'];?>">  
+                    </div>
                 </div>
                 <div class="info">
                     <div class="title">

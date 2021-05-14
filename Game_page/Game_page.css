@@ -49,9 +49,32 @@
     letter-spacing: 1px;
     line-height: 25px;
 }
+.button-image-wrapper{
+    display:flex;
+    flex-direction: row;
+}
+.vote-buttons{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+}
+.upvote{
+    transform: rotate(180deg);
+}
+.vote-buttons form{
+    display: flex;
+    flex-direction: column;
+}
+.vote-buttons input{
+    filter: invert(1);
+    width: 40px;
+}
 @media screen and (max-width: 1000px){
     .game{
         flex-direction: column;
         align-items: center;
+    }
+    .info{
+        margin-top: 50px;
     }
 }
