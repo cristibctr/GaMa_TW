@@ -1,21 +1,21 @@
 <?php
     session_start();
     require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
-    if(isset($_POST['submit']) && $_SESSION['admin']){
-        $gameName = $_POST['name'];
+    if($_POST['submit'] == 'DELETE' && $_SESSION['admin']){
+        $userName = $_POST['username'];
         try{
             $dbh = DBConnect::getConnection();
-            $sth = $dbh->prepare("SELECT name FROM games WHERE name=?");
-            $sth->execute([$gameName]);
+            $sth = $dbh->prepare("SELECT username FROM users WHERE username=?");
+            $sth->execute([$userName]);
             if($sth->rowCount() == 0){
                 echo "<script>
-                alert('Game not found');
+                alert('User not found');
                 window.location.href='/Dashboard/Dashboard.php';
                 </script>";
                 exit();
             }
-            $sth = $dbh->prepare("DELETE FROM games WHERE name=?");
-            $sth->execute([$gameName]);
+            $sth = $dbh->prepare("DELETE FROM users WHERE username=?");
+            $sth->execute([$userName]);
             header("Location: /Dashboard/Dashboard.php");
         }
         catch(PDOException $e){

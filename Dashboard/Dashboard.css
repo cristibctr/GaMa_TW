@@ -60,8 +60,15 @@ body > h1{
 .card:hover{
     background-color: rgba(0,0,0,0.4);
 }
+.card > *{
+    width: 100%;
+}
+.card form{
+    display: flex;
+    justify-content: right;
+}
 .card .username, .card .competition{
-    max-width: 190px;
+    
     font-size: 20px;
     margin-left: 30px;
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2021 at 05:14 PM
+-- Generation Time: May 14, 2021 at 04:36 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -135,7 +135,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`username`, `email`, `password`, `admin`) VALUES
 ('admin', 'admin@admin.com', '$argon2id$v=19$m=65536,t=4,p=1$N0JlcWNVRGZtZTk1bExTSg$0yc7CQ22IRWGV76pSyNW782fS6A4d035PuvNRwHozJA', 1),
-('cristi', 'cristian.bucataru@yahoo.com', '$argon2id$v=19$m=65536,t=4,p=1$RHZyVi5QbldWbEIyVXUuOA$6/ay6iiTky3Fd67DvQUqarEI8dU1FhCxRwXvKZYgW1M', 0);
+('cristi', 'cristian.bucataru@yahoo.com', '$argon2id$v=19$m=65536,t=4,p=1$UEoyelBJOWoyc2hqcm8ybg$TQlkNHokq3TDKN69s8OnuPV8NLwl61xPvz2RiEdlPsE', 0),
+('inachero', 'inachero@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$VlFzN2h0cGxtdHBoTEtMUQ$6qsQuSW5ni7LHZgzoE8PT3PfWm5tSXzJIQkzqBtL1ok', 0),
+('neterian', 'neterian@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$bHVic05vSnRoVzlvemcvdA$FytM/bQw2VysfpnkMLDUQ59M3jKg7bG4aXM0r0voTBY', 0),
+('onercuti', 'onercuti@protonmail.com', '$argon2id$v=19$m=65536,t=4,p=1$VUlQL2VjR1VKamhTLllaUA$AJLzJ010gAcqjlzk7uwupEzKWSxyisuF85aTqhvzLq0', 0),
+('thumnard', 'thumnard@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$cmZhYy90dTlYa1FKdTRRUQ$KgdJ6zL6hQk5fGFf00ADiBYpRtmVe+BVUwGTjVT6/sU', 0),
+('usturyse', 'usturyse@gmail.com', '$argon2id$v=19$m=65536,t=4,p=1$VHFMTmxIdmp4U2RwVHgzVQ$HRUOEK7BGM0phl8SFfiVR+EiIopWm+zrRybbJa5fQ+4', 0);
 
 --
 -- Indexes for dumped tables

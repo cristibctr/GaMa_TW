@@ -2,9 +2,15 @@
     require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
     try{
         $dbh = DBConnect::getConnection();
-        $query = "SELECT name FROM games";
-        $sth = $dbh->prepare($query);
-        $sth->execute();
+        //fetch games
+        $games = $dbh->prepare("SELECT name FROM games");
+        $games->execute();
+        //fetch users
+        $users = $dbh->prepare("SELECT username FROM users");
+        $users->execute();
+        //fetch competitions
+        // $competitions = $dbh->prepare("SELECT name FROM competitions");
+        // $competitions->execute();
     } 
     catch (PDOException $e){
         error_log('PDOException - ' . $e->getMessage(), 0);
@@ -60,88 +66,22 @@
             <div class="users">
                 <h1>USERS</h1>
                 <div class="cards-wrapper">
-                    <div class="card">
-                        <div class="username">inachero</div>
-                        <div class="participation">
-                            <h3>Championships</h3>
-                            <p class="champ-particip">Dota 2 Summer</p>
-                            <p class="champ-particip">Scrabble and Win</p>
-                        </div>
-                        <form method="POST">
-                            <input type="hidden" name="name" value="inachero">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="username">thumnard</div>
-                        <div class="participation">
-                            <h3>Championships</h3>
-                            <p class="champ-particip">CS GO Winter</p>
-                        </div>
-                        <form>
-                            <input type="hidden" name="name" value="thumnard">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="username">airegeas</div>
-                        <div class="participation">
-                            <h3>Championships</h3>
-                        </div>
-                        <form>
-                            <input type="hidden" name="name" value="airegeas">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="username">neterian</div>
-                        <div class="participation">
-                            <h3>Championships</h3>
-                            <p class="champ-particip">Monopoly World Championship</p>
-                        </div>
-                        <form>
-                            <input type="hidden" name="name" value="neterian">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="username">onercuti</div>
-                        <div class="participation">
-                            <h3>Championships</h3>
-                            <p class="champ-particip">Dota 2 Summer</p>
-                            <p class="champ-particip">CS GO Winter</p>
-                            <p class="champ-particip">Scrabble and Win</p>
-                            <p class="champ-particip">Connect Four under 14</p>
-                        </div>
-                        <form>
-                            <input type="hidden" name="name" value="onercuti">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="username">usturyse</div>
-                        <div class="participation">
-                            <h3>Championships</h3>
-                            <p class="champ-particip">Connect Four under 14</p>
-                            <p class="champ-particip">CS GO Winter</p>
-                            <p class="champ-particip">Monopoly World Championship</p>
-                        </div>
-                        <form>
-                            <input type="hidden" name="name" value="usturyse">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
-                    <div class="card">
-                        <div class="username">egerthir</div>
-                        <div class="participation">
-                            <h3>Championships</h3>
-                            <p class="champ-particip">Monopoly World Championship</p>
-                        </div>
-                        <form>
-                            <input type="hidden" name="name" value="egerthir">
-                            <input type="submit" name="submit" value="DELETE" class="delete">
-                        </form>
-                    </div>
+                    <?php
+                        while($row = $users->fetch(PDO::FETCH_ASSOC)){
+                            echo    '<div class="card">
+                                        <div class="username">'.$row['username'].'</div>
+                                        <div class="participation">
+                                            <h3>Championships</h3>
+                                            <p class="champ-particip">Champ 1</p>
+                                            <p class="champ-particip">Champ 2</p>
+                                        </div>
+                                        <form method="POST" action="DeleteUser.php">
+                                            <input type="hidden" name="username" value="'.$row['username'].'">
+                                            <input type="submit" name="submit" value="DELETE" class="delete">
+                                        </form>
+                                    </div>';
+                        }
+                    ?>
                 </div>
             </div>
             <div class="competitions">
@@ -270,7 +210,7 @@
                 <h1>GAMES</h1>
                 <div class="cards-wrapper">
                     <?php
-                        while($row = $sth->fetch(PDO::FETCH_ASSOC)){
+                        while($row = $games->fetch(PDO::FETCH_ASSOC)){
                             echo    '<div class="card">
                                         <div class="game-name">'.$row['name'].'</div>
                                         <form method="POST" action="DeleteGame.php">
