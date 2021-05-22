@@ -51,7 +51,7 @@
         </header>
         <h1>STATISTICS</h1>
         <div class="statistics">
-            <form method="get" action="download.php">
+            <form method="get" action="StatsDownload.php">
                 <select id="format" name="format">
                     <option value="pdf" selected>PDF</option>
                     <option value="csv">CSV</option>

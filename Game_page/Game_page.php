@@ -64,18 +64,18 @@
                             if(isset($_SESSION['username']))
                                 if($voteType == 'upvote'){
                                     echo
-                                    '<input style="filter: invert(81%) sepia(47%) saturate(531%) hue-rotate(345deg) brightness(95%) contrast(91%);" class="upvote" type="image" name="submit_upvote" value="upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
-                                    <input class="downvote" type="image" name="submit_downvote" value="downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
+                                    '<input style="filter: invert(81%) sepia(47%) saturate(531%) hue-rotate(345deg) brightness(95%) contrast(91%);" class="upvote" type="image" name="submit_upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
+                                    <input class="downvote" type="image" name="submit_downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
                                 }
                                 else if($voteType == 'downvote'){
                                     echo
-                                    '<input class="upvote" type="image" name="submit_upvote" value="upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
-                                    <input style="filter: invert(81%) sepia(47%) saturate(531%) hue-rotate(345deg) brightness(95%) contrast(91%);" class="downvote" type="image" name="submit_downvote" value="downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
+                                    '<input class="upvote" type="image" name="submit_upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
+                                    <input style="filter: invert(81%) sepia(47%) saturate(531%) hue-rotate(345deg) brightness(95%) contrast(91%);" class="downvote" type="image" name="submit_downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
                                 }
                                 else{
                                     echo
-                                    '<input class="upvote" type="image" name="submit_upvote" value="upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
-                                    <input class="downvote" type="image" name="submit_downvote" value="downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
+                                    '<input class="upvote" type="image" name="submit_upvote" alt="upvote" src="/Images/Game_page/up_down_arrow.png">
+                                    <input class="downvote" type="image" name="submit_downvote" alt="downvote" src="/Images/Game_page/up_down_arrow.png">';
                                 }
                             ?>
                             
