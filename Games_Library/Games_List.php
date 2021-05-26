@@ -82,23 +82,6 @@
                 </form>
             </div>
             <div class="games_grid">
-                <!--These are going to be generated with php from the database-->
-                <?php
-                    include 'games_fetch.php';
-                    fetchGames();
-                ?>
-                <?php
-                    if(isset($_SESSION['username'])){
-                        echo    '<div class="game-wrapper">
-                                    <a href="Add_Game/Add_Game.php">
-                                        <div class="add-button">
-                                            <img alt="add button" src="/Images/Games_List/plus.png">
-                                        </div>
-                                    </a>
-                                </div>';
-                    }
-                ?>
-                
             </div>
         </div>
         <?php
@@ -132,5 +115,6 @@
                 <a href="../Login/login.php">Login</a>
             </div>
         </footer>
+        <script src="FetchGames.js"></script> 
     </body>
 </html>

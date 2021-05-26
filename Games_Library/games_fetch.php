@@ -1,7 +1,7 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
 
-function fetchGames(){
+
     try{
         $dbh = DBConnect::getConnection();
         if(!empty($_GET['submit'])){
@@ -21,8 +21,8 @@ function fetchGames(){
             }
 
             $sth = $dbh->prepare($query);
-            $name = $_GET['search'].'%';
-            $age = $_GET['age'].'%';
+            $name = '%'.$_GET['search'].'%';
+            $age = $_GET['age'];
             $year = $_GET['release-year'].'%';
             $sth -> bindParam(1, $name);
             $sth -> bindParam(2, $age);
@@ -37,34 +37,14 @@ function fetchGames(){
             $sth = $dbh->prepare("SELECT name, year, age, cover_image FROM games");
         }
         $sth->execute();
-        
-        while($row = $sth->fetch(PDO::FETCH_ASSOC)){
-            echo '
-            <div class="game-wrapper">
-                <div class="game1">
-                    <img alt="image" src="../Images/Games_List/' . $row['cover_image'] . '">
-                    <div class="gamecard-title"><p>' . $row['name'] . '</p></div>
-                    <div class="gamecard-release">
-                        <p>Release year</p>
-                        <p class="release-year">' . $row['year'] . '</p>
-                    </div>
-                    <div class="gamecard-age">
-                        <p>Age</p>
-                        <p class="age">' . $row['age'] . '+</p>
-                    </div>
-                    <div class="link-wrapper">
-                        <a href="../Game_page/Game_page.php?name=' . $row['name'] . '">
-                            <div class="button"><p>Details</p></div>
-                        </a>
-                    </div>
-                </div>
-            </div>';
-        }
+        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+        header("content-type:application/json");
+        echo json_encode($rows);
     }
     catch (PDOException $e){
         error_log('PDOException - ' . $e->getMessage(), 0);
         http_response_code(500);
         die('Error establishing connection with database');
     }
-}
+
 ?>
