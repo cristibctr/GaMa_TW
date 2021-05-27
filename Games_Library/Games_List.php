@@ -82,6 +82,17 @@
                 </form>
             </div>
             <div class="games_grid">
+            <?php
+                    if(isset($_SESSION['username'])){
+                        echo    '<div class="game-wrapper" id="add-button">
+                                    <a href="Add_Game/Add_Game.php">
+                                        <div class="add-button">
+                                            <img alt="add button" src="/Images/Games_List/plus.png">
+                                        </div>
+                                    </a>
+                                </div>';
+                    }
+                ?>
             </div>
         </div>
         <?php

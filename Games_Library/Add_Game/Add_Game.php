@@ -98,5 +98,16 @@
                 <a href="/Login/login.php">Login</a>
             </div>
         </footer>
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            switch(urlParams.get('message')){
+                case 'badfileformat':
+                    alert("File is not an image");
+                    break;
+                case 'success':
+                    alert("Game created successfully");
+                    break;
+            }
+        </script>
     </body>
 </html>

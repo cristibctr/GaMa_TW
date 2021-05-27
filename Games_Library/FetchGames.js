@@ -8,13 +8,14 @@ async function fetchGames(event){
     var relYear = document.getElementById('year').value;
     var age = document.getElementById('age').value ? document.getElementById('age').value : '%';
     var search = document.getElementById('search').value;
+    if(document.getElementById('add-button') != null) var addButton = document.getElementById('add-button');
     var url = `/Games_Library/games_fetch.php?release-year=${relYear}&age=${age}&search=${search}&submit=submit`;
     for(var cat of cats){
         if(cat.checked){
             url += '&category[]=' + cat.id;
         }
     }
-    //
+    //Request + DOM manipulation
     var request = new Request(url,{
         method:'GET'
     });
@@ -43,4 +44,5 @@ async function fetchGames(event){
                                 `</div>`;+
         document.getElementsByClassName('games_grid')[0].appendChild(gameWrapper);
     }
+    if(addButton != null) document.getElementsByClassName('games_grid')[0].appendChild(addButton);
 }
