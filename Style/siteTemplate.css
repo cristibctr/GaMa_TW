@@ -23,7 +23,7 @@ header a:link, a:visited{
     color: white;
 }
 header .site-name{
-    padding: 0px 30px 0px 30px;
+    padding: 0 30px 0 30px;
     color: white;
     font-family: Roboto;
     letter-spacing: 2px;
@@ -100,7 +100,7 @@ footer > div{
     width: 100%;
 }
 footer .media{
-    margin: 40px 0px 0px 40px;
+    margin: 40px 0 0 40px;
 }
 footer .site-name{
     color: white;

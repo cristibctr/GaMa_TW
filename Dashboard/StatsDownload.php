@@ -11,10 +11,6 @@ switch($_GET['format']){
     case 'pdf':
         pdf($dbh);
         break;
-    case 'docbook':
-        break;
-    case 'minimal':
-        break;
     default:
         break;
 }

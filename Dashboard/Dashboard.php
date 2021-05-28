@@ -55,8 +55,6 @@
                 <select id="format" name="format">
                     <option value="pdf" selected>PDF</option>
                     <option value="csv">CSV</option>
-                    <option value="docbook">DocBook</option>
-                    <option value="minimal">Minimal</option>
                 </select>
                 <button type="submit">DOWNLOAD</button>
              </form>             
