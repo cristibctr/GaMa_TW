@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2021 at 10:16 PM
+-- Generation Time: Jun 04, 2021 at 08:33 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `gama_tw`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `competiti`
+--
+
+CREATE TABLE `competiti` (
+  `name` varchar(100) NOT NULL,
+  `games` varchar(100) NOT NULL,
+  `first` date NOT NULL,
+  `last` date NOT NULL,
+  `level` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `competiti`
+--
+
+INSERT INTO `competiti` (`name`, `games`, `first`, `last`, `level`, `type`) VALUES
+('ALYX Game Show', 'HALF-LIFE ALYX', '2021-03-16', '2021-08-06', 'insane', 'multi'),
+('CS GO BOT TI', 'CS GO', '2021-08-04', '2021-08-05', 'begginer', 'multi'),
+('Dota 2 Annual Global', 'DOTA 2', '2021-06-09', '2021-07-01', 'hard', 'multi'),
+('Into the future', 'Cyberpunk', '2021-06-30', '2021-07-05', 'inter', 'single');
 
 -- --------------------------------------------------------
 
@@ -47,7 +72,7 @@ CREATE TABLE `games` (
 INSERT INTO `games` (`name`, `year`, `age`, `players`, `type`, `restrictions`, `description`, `cover_image`, `game_image`, `votes`) VALUES
 ('Catan', 2003, 10, 2, 'Board-Game', 'none', 'Catan, previously known as The Settlers of Catan or simply Settlers, is a multiplayer board game designed by Klaus Teuber. It was first published in 1995 in Germany by Franckh-Kosmos Verlag (Kosmos) as Die Siedler von Catan. Players take on the roles of settlers, each attempting to build and develop holdings while trading and acquiring resources. Players gain points as their settlements grow; the first to reach a set number of points, typically 10, wins. The game and its many expansions are also published by Catan Studio, Filosofia, GP, Inc., 999 Games, Κάισσα, and Devir. ', 'Catan-2015-boxart.jpg', 'catan.jpg', 1),
 ('Connect Four', 2006, 6, 2, 'Board-Game', 'none', 'Connect Four is a two-player connection board game, in which the players choose a color and then take turns dropping colored discs into a seven-column, six-row vertically suspended grid. The pieces fall straight down, occupying the lowest available space within the column. The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four of one\'s own discs. Connect Four is a solved game. The first player can always win by playing the right moves. ', 'connect-four.jpg', 'connect_four.jpg', 2),
-('CS GO', 2012, 18, 10, 'Video-Game', 'Microphone required', 'Counter-Strike: Global Offensive (CS:GO) is a multiplayer first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series. Developed for over two years, Global Offensive was released for Windows, macOS, Xbox 360, and PlayStation 3 in August 2012, and for Linux in 2014. Valve still regularly updates the game, both with smaller balancing patches and larger content additions.\r\nThe most common game modes involve the Terrorists planting a bomb while Counter-Terrorists attempt to stop them, or Counter-Terrorists attempting to rescue hostages that the Terrorists have captured. ', 'csgo.jpg', 'csgo_game.jpg', 1),
+('CS GO', 2012, 18, 10, 'Video-Game', 'Microphone required', 'Counter-Strike: Global Offensive (CS:GO) is a multiplayer first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series. Developed for over two years, Global Offensive was released for Windows, macOS, Xbox 360, and PlayStation 3 in August 2012, and for Linux in 2014. Valve still regularly updates the game, both with smaller balancing patches and larger content additions.\r\nThe most common game modes involve the Terrorists planting a bomb while Counter-Terrorists attempt to stop them, or Counter-Terrorists attempting to rescue hostages that the Terrorists have captured. ', 'csgo.jpg', 'csgo_game.jpg', 2),
 ('Cyberpunk', 2020, 18, 1, 'Video-Game', 'Graphic scenes', 'Cyberpunk 2077 is a 2020 action role-playing video game developed and published by CD Projekt. The story takes place in Night City, an open world set in the Cyberpunk universe. Players assume the first-person perspective of a customisable mercenary known as V, who can acquire skills in hacking and machinery with options for melee and ranged combat. The game was developed using the REDengine 4 by a team of around 500 people, exceeding the number that worked on the studio\'s previous game The Witcher 3: Wild Hunt (2015). It received praise for its narrative, setting, and graphics, although some of its gameplay elements received mixed responses, while its themes and representation of transgender characters received scrutiny. Cyberpunk 2077 was also widely criticized for bugs, particularly in the console versions which suffered from performance issues; Sony removed it from the PlayStation Store on 17 December 2020. CD Projekt became subject to investigations and class-action lawsuits for their perceived attempts in downplaying the severity of the game\'s technical issues before release. ', 'cyberpunk.jpeg', 'cyberpunk.jpg', 1),
 ('DOTA 2', 2013, 16, 10, 'Video-Game', 'None', 'Dota 2 is a multiplayer online battle arena (MOBA) video game developed and published by Valve. The game is a sequel to Defense of the Ancients (DotA), which was a community-created mod for Blizzard Entertainment\'s Warcraft III: Reign of Chaos. Dota 2 is played in matches between two teams of five players, with each team occupying and defending their own separate base on the map. Each of the ten players independently controls a powerful character, known as a \"hero\", who all have unique abilities and differing styles of play. During a match players collect experience points and items for their heroes to successfully defeat the opposing team\'s heroes in player versus player combat. A team wins by being the first to destroy the other team\'s \"Ancient\", a large structure located within their base. ', 'Dota2.jpg', 'dota2.png', 0),
 ('HALF-LIFE ALYX', 2020, 18, 1, 'Video-Game', 'VR headset needed', 'Half-Life: Alyx is a 2020 virtual reality (VR) first-person shooter developed and published by Valve. Set between the events of Half-Life (1998) and Half-Life 2 (2004), players control Alyx Vance on a mission to seize a superweapon belonging to the alien Combine. Players use VR to interact with the environment and fight enemies, using \"gravity gloves\" to manipulate objects, similarly to the gravity gun from Half-Life 2. Traditional Half-Life elements return, such as physics puzzles, combat, exploration and survival horror elements. ', 'HF_Alyx.jpg', 'half-life-alyx.jpg', 0),
@@ -84,6 +109,28 @@ INSERT INTO `game_category` (`name`, `category`) VALUES
 ('DOTA 2', 'MOBA'),
 ('HALF-LIFE ALYX', 'Single-player'),
 ('HALF-LIFE ALYX', 'First-person shooter');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `numecomp`
+--
+
+CREATE TABLE `numecomp` (
+  `nume` varchar(100) NOT NULL,
+  `comp` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `numecomp`
+--
+
+INSERT INTO `numecomp` (`nume`, `comp`) VALUES
+('admin', 'ALYX Game Show'),
+('admin', 'CS GO BOT TI'),
+('admin', 'Into the future'),
+('admin', 'Dota 2 Annual Global'),
+('cristi', 'CS GO BOT TI');
 
 -- --------------------------------------------------------
 
@@ -163,12 +210,19 @@ INSERT INTO `user_vote` (`username`, `game_name`, `vote_type`) VALUES
 ('cristi', 'Connect Four', 'upvote'),
 ('cristi', 'Catan', 'upvote'),
 ('cristi', 'Cyberpunk', 'downvote'),
-('admin', 'CS GO', 'upvote'),
-('admin', 'Connect Four', 'upvote');
+('admin', 'Connect Four', 'upvote'),
+('onercuti', 'CS GO', 'upvote'),
+('admin', 'CS GO', 'upvote');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `competiti`
+--
+ALTER TABLE `competiti`
+  ADD PRIMARY KEY (`name`);
 
 --
 -- Indexes for table `games`
@@ -181,6 +235,13 @@ ALTER TABLE `games`
 --
 ALTER TABLE `game_category`
   ADD KEY `category_fk` (`name`);
+
+--
+-- Indexes for table `numecomp`
+--
+ALTER TABLE `numecomp`
+  ADD KEY `name_fk` (`nume`),
+  ADD KEY `comp_fk` (`comp`);
 
 --
 -- Indexes for table `target_audience`
@@ -210,6 +271,13 @@ ALTER TABLE `user_vote`
 --
 ALTER TABLE `game_category`
   ADD CONSTRAINT `category_fk` FOREIGN KEY (`name`) REFERENCES `games` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `numecomp`
+--
+ALTER TABLE `numecomp`
+  ADD CONSTRAINT `comp_fk` FOREIGN KEY (`comp`) REFERENCES `competiti` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `name_fk` FOREIGN KEY (`nume`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `target_audience`

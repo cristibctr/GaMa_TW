@@ -133,7 +133,12 @@
                 <a href="../index.php">Home</a>
                 <a href="../gameLibrary.html">Game Library</a>
                 <a href="../../Join/join.php">Competitions</a>
-                <a href="../login.php">Login</a>
+                <?php
+                if(!isset($_SESSION['username']))
+                    echo '<a href="/Login/login.php">Login</a>';
+                else
+                    echo '<a href="/Login/logout.php">Logout</a>';
+                ?>
             </div>
         </footer>
     </body>

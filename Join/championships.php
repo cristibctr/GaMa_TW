@@ -4,12 +4,8 @@
 function fetchChamp(){
     try{
         $dbh = DBConnect::getConnection();
-        if(!empty($_GET['submit'])){
             $query = "SELECT competiti.name, games, first , last, competiti.type, level, cover_image FROM competiti join games on competiti.games=games.name";
             $sth = $dbh->prepare($query);
-            
-           
-        }
        
         $sth->execute();
         
@@ -19,7 +15,7 @@ function fetchChamp(){
                 <div class="game1">
                     <div class="space1">
                         <img alt="image" src="../Images/Games_List/' . $row['cover_image'] . '">
-                        <div class="games"><p>' . $row['games'] . '</p></div>
+                        <div class="name"><p>' . $row['games'] . '</p></div>
                         <div class="name"><p>' . $row['name'] . '</p></div>
                         <div class="level"><p>' . $row['level'] . '</p></div>
                         <div class="type"><p>' . $row['type'] . '</p></div></div>
@@ -31,7 +27,10 @@ function fetchChamp(){
                             <p>END</p>
                         <p class="last">' . $row['last'] . '</p></div>
                          <div class="link-wrapper">
-                           <button type="submit" class="button" name="join">JOIN</button>
+                            <form method="POST" action="Join_Champ.php">
+                                <input type="hidden" id="compName" name="compName" value="' . $row['name'] . '">
+                                <button type="submit" class="button" name="join">JOIN</button>
+                            </form>
                         </div>
                     </div>
 
