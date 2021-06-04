@@ -6,6 +6,15 @@
         $comp = $_POST['compName'];
             try{
                 $dbh = DBConnect::getConnection();
+                $sth = $dbh->prepare("SELECT * from numecomp WHERE nume=? AND comp=?");
+                $sth->bindParam(1, $nume);
+                $sth->bindParam(2, $comp);
+                $sth->execute();
+                if($sth->rowCount() > 0)
+                {
+                    header('Location: ' . $_SERVER['HTTP_REFERER']);
+                    exit();
+                }
                 $sth = $dbh->prepare("INSERT INTO numecomp (nume, comp) VALUES (?, ?)");
                 $sth->bindParam(1, $nume);
                 $sth->bindParam(2, $comp);

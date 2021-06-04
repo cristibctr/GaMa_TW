@@ -9,8 +9,16 @@
         $users = $dbh->prepare("SELECT username FROM users");
         $users->execute();
         //fetch competitions
-        // $competitions = $dbh->prepare("SELECT name FROM competitions");
-        // $competitions->execute();
+        $competitions = $dbh->prepare("SELECT * FROM competiti");
+        $competitions->execute();
+        //user participation
+        $participation = $dbh->prepare("SELECT nume, comp FROM numecomp");
+        $participation->execute();
+        $userComp = $participation->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP);
+        //competitions participants
+        $participation = $dbh->prepare("SELECT nume, comp FROM numecomp");
+        $participation->execute();
+        $compParticipants = $participation->fetchAll(PDO::FETCH_COLUMN|PDO::FETCH_GROUP, 1);
     } 
     catch (PDOException $e){
         error_log('PDOException - ' . $e->getMessage(), 0);
@@ -69,15 +77,19 @@
                             echo    '<div class="card">
                                         <div class="username">'.$row['username'].'</div>
                                         <div class="participation">
-                                            <h3>Championships</h3>
-                                            <p class="champ-particip">Champ 1</p>
-                                            <p class="champ-particip">Champ 2</p>
-                                        </div>
-                                        <form method="POST" action="DeleteUser.php">
-                                            <input type="hidden" name="username" value="'.$row['username'].'">
-                                            <input type="submit" name="submit" value="DELETE" class="delete">
-                                        </form>
-                                    </div>';
+                                            <h3>Championships</h3>';
+                            if(array_key_exists($row['username'], $userComp))
+                                foreach($userComp[$row['username']] as $uc){
+                                    echo '<p class="champ-particip">'.$uc.'</p>';
+                                }
+                            else
+                                echo '<p class="champ-particip">NONE</p>';
+                            echo '</div>
+                                    <form method="POST" action="DeleteUser.php">
+                                        <input type="hidden" name="username" value="'.$row['username'].'">
+                                        <input type="submit" name="submit" value="DELETE" class="delete">
+                                    </form>
+                                </div>';
                         }
                     ?>
                 </div>
@@ -85,123 +97,37 @@
             <div class="competitions">
                 <h1>COMPETITIONS</h1>
                 <div class="cards-wrapper">
-                    <div class="card-wrapper">
-                        <div class="no-overflow card">
-                            <div class="competition">Dota 2 Summer</div>
-                            <div class="game">
-                                <h3>Game:</h3>
-                                <p class="game-name">Dota 2</p>
-                            </div>
-                            <form>
-                                <input type="hidden" name="name" value="Dota 2 Summer">
-                                <input type="submit" name="submit" value="DELETE" class="delete">
-                            </form>
-                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
-                        </div>
-                        <div class="more-info" style="display: none">
-                            <p>Starting date: <span>08-February-2022</span></p>
-                            <p>Ending date: <span>08-March-2022</span></p>
-                            <p>Participants:</p>
-                            <ul>
-                                <li>inachero</li>
-                                <li>onercuti</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="no-overflow card">
-                            <div class="competition">CS GO Winter</div>
-                            <div class="game">
-                                <h3>Game:</h3>
-                                <p class="game-name">CS GO</p>
-                            </div>
-                            <form>
-                                <input type="hidden" name="name" value="CS GO Winter">
-                                <input type="submit" name="submit" value="DELETE" class="delete">
-                            </form>
-                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
-                        </div>
-                        <div class="more-info" style="display: none">
-                            <p>Starting date: <span>26-May-2021</span></p>
-                            <p>Ending date: <span>05-June-2021</span></p>
-                            <p>Participants:</p>
-                            <ul>
-                                <li>thumnard</li>
-                                <li>onercuti</li>
-                                <li>usturyse</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="no-overflow card">
-                            <div class="competition">Scrabble and Win</div>
-                            <div class="game">
-                                <h3>Game:</h3>
-                                <p class="game-name">Scrabble</p>
-                            </div>
-                            <form>
-                                <input type="hidden" name="name" value="Scrabble and Win">
-                                <input type="submit" name="submit" value="DELETE" class="delete">
-                            </form>
-                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
-                        </div>
-                        <div class="more-info" style="display: none">
-                            <p>Starting date: <span>20-April-2021</span></p>
-                            <p>Ending date: <span>30-April-2021</span></p>
-                            <p>Participants:</p>
-                            <ul>
-                                <li>inachero</li>
-                                <li>onercuti</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="no-overflow card">
-                            <div class="competition">Monopoly World Championship</div>
-                            <div class="game">
-                                <h3>Game:</h3>
-                                <p class="game-name">Monopoly</p>
-                            </div>
-                            <form>
-                                <input type="hidden" name="name" value="Monopoly World Championship">
-                                <input type="submit" name="submit" value="DELETE" class="delete">
-                            </form>
-                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
-                        </div>
-                        <div class="more-info" style="display: none">
-                            <p>Starting date: <span>01-August-2021</span></p>
-                            <p>Ending date: <span>01-September-2021</span></p>
-                            <p>Participants:</p>
-                            <ul>
-                                <li>neterian</li>
-                                <li>egerthir</li>
-                                <li>usturyse</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-wrapper">
-                        <div class="no-overflow card">
-                            <div class="competition">Connect Four under 14</div>
-                            <div class="game">
-                                <h3>Game:</h3>
-                                <p class="game-name">Connect Four</p>
-                            </div>
-                            <form>
-                                <input type="hidden" name="name" value="Connect Four under 14">
-                                <input type="submit" name="submit" value="DELETE" class="delete">
-                            </form>
-                            <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
-                        </div>
-                        <div class="more-info" style="display: none">
-                            <p>Starting date: <span>25-April-2021</span></p>
-                            <p>Ending date: <span>26-April-2021</span></p>
-                            <p>Participants:</p>
-                            <ul>
-                                <li>usturyse</li>
-                                <li>onercuti</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php
+                        while($row = $competitions->fetch(PDO::FETCH_ASSOC)){
+                            echo '<div class="card-wrapper">
+                                    <div class="no-overflow card">
+                                        <div class="competition">'.$row['name'].'</div>
+                                        <div class="game">
+                                            <h3>Game:</h3>
+                                            <p class="game-name">'.$row['games'].'</p>
+                                        </div>
+                                        <form method="POST" action="DeleteComp.php">
+                                            <input type="hidden" name="name" value="'.$row['name'].'">
+                                            <input type="submit" name="submit" value="DELETE" class="delete">
+                                        </form>
+                                        <div class="show-more" onclick="showInfo(this)">Show more ▼</div>
+                                    </div>
+                                    <div class="more-info" style="display: none">
+                                        <p>Starting date: <span>'.$row['first'].'</span></p>
+                                        <p>Ending date: <span>'.$row['last'].'</span></p>
+                                        <p>Participants:</p>
+                                        <ul>';
+                            if(array_key_exists($row['name'], $compParticipants))
+                                foreach($compParticipants[$row['name']] as $cp){
+                                    echo    '<li>'.$cp.'</li>';
+                                }
+                            else
+                                echo        '<li>NONE</li>';                
+                            echo        '</ul>
+                                    </div>
+                                </div>';
+                        }
+                    ?>
                 </div>
             </div>
             <div class="games">

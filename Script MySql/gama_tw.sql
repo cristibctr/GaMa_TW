@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2021 at 08:33 PM
+-- Generation Time: Jun 04, 2021 at 09:38 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -42,6 +42,7 @@ CREATE TABLE `competiti` (
 
 INSERT INTO `competiti` (`name`, `games`, `first`, `last`, `level`, `type`) VALUES
 ('ALYX Game Show', 'HALF-LIFE ALYX', '2021-03-16', '2021-08-06', 'insane', 'multi'),
+('Catan is Fun', 'Catan', '2022-04-06', '2022-06-15', 'insane', 'multi'),
 ('CS GO BOT TI', 'CS GO', '2021-08-04', '2021-08-05', 'begginer', 'multi'),
 ('Dota 2 Annual Global', 'DOTA 2', '2021-06-09', '2021-07-01', 'hard', 'multi'),
 ('Into the future', 'Cyberpunk', '2021-06-30', '2021-07-05', 'inter', 'single');
@@ -126,11 +127,17 @@ CREATE TABLE `numecomp` (
 --
 
 INSERT INTO `numecomp` (`nume`, `comp`) VALUES
-('admin', 'ALYX Game Show'),
 ('admin', 'CS GO BOT TI'),
 ('admin', 'Into the future'),
 ('admin', 'Dota 2 Annual Global'),
-('cristi', 'CS GO BOT TI');
+('cristi', 'CS GO BOT TI'),
+('admin', 'ALYX Game Show'),
+('inachero', 'CS GO BOT TI'),
+('inachero', 'Into the future'),
+('onercuti', 'CS GO BOT TI'),
+('onercuti', 'Dota 2 Annual Global'),
+('onercuti', 'ALYX Game Show'),
+('thumnard', 'ALYX Game Show');
 
 -- --------------------------------------------------------
 
@@ -222,7 +229,8 @@ INSERT INTO `user_vote` (`username`, `game_name`, `vote_type`) VALUES
 -- Indexes for table `competiti`
 --
 ALTER TABLE `competiti`
-  ADD PRIMARY KEY (`name`);
+  ADD PRIMARY KEY (`name`),
+  ADD KEY `game_fk` (`games`);
 
 --
 -- Indexes for table `games`
@@ -265,6 +273,12 @@ ALTER TABLE `user_vote`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `competiti`
+--
+ALTER TABLE `competiti`
+  ADD CONSTRAINT `game_fk` FOREIGN KEY (`games`) REFERENCES `games` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `game_category`
