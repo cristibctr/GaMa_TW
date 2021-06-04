@@ -33,7 +33,7 @@
    
     <div class="base">
         <div class="sec1">
-            <form>
+            <form method="post" action="CREATE.php" enctype="multipart/form-data">
                 <div class="create">
                         <h1>CREATE CHAMPIONSHIP</h1> </div>
                 <div class="games">
@@ -42,14 +42,19 @@
                          
 
                            <select name="games" class="cars">
-                                <option value="dota2">DOTA 2</option>
-                                <option value="dota2">CYBERPUNK</option>
-                                <option value="dota2">HALF-LIFE</option>
-                                <option value="dota2">CATAN</option>
-                                <option value="dota2">CONNECT-FOUR</option>
-                                <option value="dota2">MONOPOLY</option>
-                                <option value="dota2">SCRABBLE</option>
-                                <option value="dota2">CS-GO</option>
+                           <?php
+                           require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
+                           $dbh = DBConnect::getConnection();
+                             $sth = $dbh->prepare("SELECT name FROM games");
+                                $sth->execute();
+                              $dbname=$sth->fetchAll(PDO::FETCH_COLUMN | PDO::FETCH_ASSOC, 0) ;
+                                foreach($dbname as $names){
+                                    echo '<option value="'.$names.'">'.$names.'</option>';
+                                }
+
+                           ?>
+
+                        
                            </select>
                           </div>
                          
@@ -63,11 +68,11 @@
                      <div class="drop">
                           
 
-                           <select name="games" class="cars">
-                                <option value="dota2">BEGGINER</option>
-                                <option value="dota2">INTERMEDIAR</option>
-                                <option value="dota2">HARD-CORE</option>
-                                <option value="dota2">INSANE</option>
+                           <select class="cars" name="level">
+                                <option value="begginer">BEGGINER</option>
+                                <option value="inter">INTERMEDIAR</option>
+                                <option value="hard">HARD-CORE</option>
+                                <option value="insane">INSANE</option>
                                
                            </select>
                             
@@ -78,16 +83,16 @@
 
            
            
-                <div class="mode">
+                <div class="type">
                     <p>GAME MODE</p>
                      <div class="drop" >
                             
                            
                          
 
-                           <select name="games" class="cars">
-                                <option value="dota2">SINGLE-PLAYER</option>
-                                <option value="dota2">MULTI-PLAYER</option>
+                           <select name="type" class="cars" >
+                                <option value="single">SINGLE-PLAYER</option>
+                                <option value="multi">MULTI-PLAYER</option>
                                
                            </select>
                           </div>
@@ -97,23 +102,25 @@
 
             
                          <div class="first">
-                            <label for="date">FIRST DAY</label>
-                            <input type="date" name="date" id="date">   
+                            <label for="first">FIRST DAY</label>
+                            <input type="date" name="first" id="first">   
                         </div>
-                        <div class="second">
-                             <label for="dateL">LAST DAY</label>
-                             <input type="date" name="dateL" id="dateL">   
+                        <div class="last">
+                             <label for="last">LAST DAY</label>
+                             <input type="date" name="last" id="last">   
                         </div>
                         <div class="name">
-                            <label for="name1">NAME</label>
-                            <input type="text" name="name1" id="name1">
+                            <label for="name">NAME</label>
+                            <input type="text" name="name" id="name">
                         </div>
+                        </div>
+                        <div class="sec2">
+                            <button type="submit" class="submit" name="go">GO!</button></div>
+                        
             </form>
-         </div>
+         
    
-        <div class="sec2">
-            <button type="submit" class="submit">GO!</button>
-        </div>
+      
 
     </div>
     <?php

@@ -12,7 +12,7 @@ class DBConnect{
                 self::$dbh = new PDO('mysql:host=localhost;dbname=gama_tw', 'root', '');
                 self::$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch(PDOException $e){
-                error_log('PDOException - ' . $e->getMessage(), 0);
+                echo('PDOException - ' . $e->getMessage());
                 http_response_code(500);
                 die('Error establishing connection with database');
             }

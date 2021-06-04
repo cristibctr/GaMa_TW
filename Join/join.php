@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>GAMA</title>
+        <games>GAMA</games>
        
         <link rel="shortcut icon" href="favicon.ico" type ="image/x-icon"/>
         <link rel="stylesheet" href="../Style/siteTemplate.css" type="text/css">
@@ -37,13 +37,50 @@
                            
                              <div class="text-create">If you don't like others</div>
        </div>
-    <div class="titlepage">YOUR COMPETITIONS</div>
+    <div class="gamespage">YOUR COMPETITIONS</div>
        <div class="gameself">
            <div class="format">
+             <?php
+                    if(isset($_SESSION['username'])){
+                       if(isset($_POST['join'])){
+                                     $username = $_POST['username'];
+                                        $yourcomp=$_POST['yourcomp'];
+        try{
+            $dbh = DBConnect::getConnection();
+            $sth = $dbh->prepare("SELECT numecomp FROM numecomp where numecomp = ?");
+            $sth->execute([$username]);
+            if($sth->rowCount() > 0){
+               header("Location:/Join/join.php");
+               
+                exit();
+            }
+            $query = "INSERT INTO competiti (username, numecomp) VALUES (:username, :numecomp)";
+            $sth = $dbh->prepare($query);
+            $sth->bindParam(':username', $username);
+            $sth->bindParam(':numecomp', $numecomp);
+            
+          
+            $sth->execute();
+            
+            header("Location:/Join/join.php");
+        }
+        catch(PDOException $e){
+            echo('PDOException - ' . $e->getMessage());
+            http_response_code(500);
+            die('Error establishing connection with database');
+        }
+    }
+                    }
+
+
+                    fetchChamp();
+                    
+                   
+                ?>
                 <div class="game1">
                     <div class="space1">
                         <img alt="image" src="../Images/Games_List/Monopoly.jpg">
-                        <div class="title"><p>MONOPOLY</p></div>
+                        <div class="games"><p>MONOPOLY</p></div>
                         <div class="name"><p>HYDRA</p></div>
                         <div class="level"><p>HARD-CORE</p></div>
                         <div class="type"><p>MULTI-PLAYER</p></div></div>
@@ -52,7 +89,7 @@
                             <p>START</p>
                        <p class="first">29/01/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
+                            <p>END</p>
                         <p class="last">31/02/2021</p></div>
                          <div class="link-wrapper">
                             <a href="../Game_page/Monopoly/Game_Monopoly.html">
@@ -67,7 +104,7 @@
                 <div class="game6">
                      <div class="space1">
                         <img alt="image" src="../Images/Games_List/Dota2.jpg">
-                        <div class="title"><p>DOTA 2</p></div>
+                        <div class="games"><p>DOTA 2</p></div>
                         <div class="name"><p>MAGE</p></div>
                         <div class="level"><p>INSANE</p></div>
                         <div class="type"><p>MULTI-PLAYER</p></div></div>
@@ -76,7 +113,7 @@
                             <p>START</p>
                        <p class="first">22/08/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
+                            <p>END</p>
                         <p class="last">11/10/2021</p></div>
                          <div class="link-wrapper">
                             <a href="../Game_page/Dota2/Game_Dota2.html">
@@ -90,7 +127,7 @@
                 <div class="game4">
                     <div class="space1">
                           <img alt="image" src="../Images/Games_List/cyberpunk.jpeg">
-                        <div class="title"><p>CYBERPUNK</p></div>
+                        <div class="games"><p>CYBERPUNK</p></div>
                         <div class="name"><p>TENNOR</p></div>
                         <div class="level"><p>INTERMEDIAR</p></div>
                         <div class="type"><p>SINGLE-PLAYER</p></div></div>
@@ -99,7 +136,7 @@
                             <p>START</p>
                        <p class="first">17/03/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
+                            <p>END</p>
                         <p class="last">21/08/2021</p></div>
                          <div class="link-wrapper">
                             <a href="../Game_page/Cyberpunk/Game_Cyberpunk.html">
@@ -114,13 +151,17 @@
 
 
 
-        <div class="titlepage">OTHER COMPETITIONS</div>
+        <div class="gamespage">OTHER COMPETITIONS</div>
         <div class="gamebody">
+        <?php
+            require_once($_SERVER['DOCUMENT_ROOT']."/DBConnect/DBConnect.php");
+            fetchChamp();                    
+           ?>
             <div class="format">
                 <div class="game1">
                     <div class="space1">
                         <img alt="image" src="../Images/Games_List/Monopoly.jpg">
-                        <div class="title"><p>MONOPOLY</p></div>
+                        <div class="games"><p>MONOPOLY</p></div>
                         <div class="name"><p>HYDRA</p></div>
                         <div class="level"><p>HARD-CORE</p></div>
                         <div class="type"><p>MULTI-PLAYER</p></div></div>
@@ -129,8 +170,8 @@
                             <p>START</p>
                        <p class="first">29/01/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
-                        <p class="last">31/02/2021</p></div>
+                            <p>END</p>
+                        <p class="last">28/02/2021</p></div>
                          <div class="link-wrapper">
                             <a href="../Game_page/Monopoly/Game_Monopoly.html">
                                 <div class="button"><p>JOIN</p></div>
@@ -146,7 +187,7 @@
                     <div class="space1">
                         
                         
-                        <div class="title"><p>CS-GO</p></div>
+                        <div class="games"><p>CS-GO</p></div>
                         <div class="name"><p>AVATAR</p></div>
                         <div class="level"><p>INSANE</p></div>
                         <div class="type"><p>MULTI-PLAYER</p></div>
@@ -157,7 +198,7 @@
                             <p>START</p>
                        <p class="first">14/05/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
+                            <p>END</p>
                         <p class="last">21/07/2021</p></div>
                          <div class="link-wrapper">
                             <a href="../Game_page/CSGO/Game_CSGO.html">
@@ -172,7 +213,7 @@
                 <div class="game3">
                     <div class="space1">
                         <img alt="image" src="../Images/Games_List/Catan-2015-boxart.jpg">
-                        <div class="title"><p>CATAN</p></div>
+                        <div class="games"><p>CATAN</p></div>
                         <div class="name"><p>BRAWL</p></div>
                         <div class="level"><p>BEGGINNER</p></div>
                         <div class="type"><p>MULTI-PLAYER</p></div></div>
@@ -181,7 +222,7 @@
                             <p>START</p>
                        <p class="first">19/11/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
+                            <p>END</p>
                         <p class="last">17/12/2021</p></div>
                          <div class="link-wrapper">
                            <a href="../Game_page/Catan/Game_Catan.html">
@@ -196,7 +237,7 @@
                 <div class="game4">
                     <div class="space1">
                           <img alt="image" src="../Images/Games_List/cyberpunk.jpeg">
-                        <div class="title"><p>CYBERPUNK</p></div>
+                        <div class="games"><p>CYBERPUNK</p></div>
                         <div class="name"><p>TENNOR</p></div>
                         <div class="level"><p>INTERMEDIAR</p></div>
                         <div class="type"><p>SINGLE-PLAYER</p></div></div>
@@ -205,7 +246,7 @@
                             <p>START</p>
                        <p class="first">17/03/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
+                            <p>END</p>
                         <p class="last">21/08/2021</p></div>
                          <div class="link-wrapper">
                             <a href="../Game_page/Cyberpunk/Game_Cyberpunk.html">
@@ -220,7 +261,7 @@
                 <div class="game5">
                     <div class="space1">
                         <img alt="image" src="../Images/Games_List/connect-four.jpg">
-                        <div class="title"><p>CONNECT-FOUR</p></div>
+                        <div class="games"><p>CONNECT-FOUR</p></div>
                         <div class="name"><p>COPS</p></div>
                         <div class="level"><p>HARD-CORE</p></div>
                         <div class="type"><p>MULTI-PLAYER</p></div></div>
@@ -229,7 +270,7 @@
                             <p>START</p>
                        <p class="first">19/05/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
+                            <p>END</p>
                         <p class="last">25/06/2021</p></div>
                          <div class="link-wrapper">
                             <a href="../Game_page/Connect_Four/Game_Connect_Four.html">
@@ -243,7 +284,7 @@
                 <div class="game6">
                      <div class="space1">
                         <img alt="image" src="../Images/Games_List/Dota2.jpg">
-                        <div class="title"><p>DOTA 2</p></div>
+                        <div class="games"><p>DOTA 2</p></div>
                         <div class="name"><p>MAGE</p></div>
                         <div class="level"><p>INSANE</p></div>
                         <div class="type"><p>MULTI-PLAYER</p></div></div>
@@ -252,7 +293,7 @@
                             <p>START</p>
                        <p class="first">22/08/2021</p></div>
                         <div class="stop">
-                            <p>THE END</p>
+                            <p>END</p>
                         <p class="last">11/10/2021</p></div>
                          <div class="link-wrapper">
                             <a href="../Game_page/Dota2/Game_Dota2.html">
