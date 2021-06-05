@@ -6,7 +6,7 @@
             <channel>
             <title>GAMA | RSS</title>
             <link>/</link>
-            <description>Top games and players</description>
+            <description>This feed handles the top voted games and the most popular championships</description>
             <language>en-us</language>";
     try{
         $dbh = DBConnect::getConnection();
@@ -21,6 +21,18 @@
                     <link>http://localhost/Game_page/Game_page.php?name=$name</link>
                     <gama:year>$year</gama:year>
                     <gama:votes>$votes</gama:votes>
+                    <category>games</category>
+                </item>";
+        }
+        $sth = $dbh->prepare("SELECT comp, count(nume) AS nrcomp FROM numecomp GROUP BY comp ORDER BY nrcomp DESC LIMIT 3");
+        $sth->execute();
+        while($row = $sth->fetch(PDO::FETCH_ASSOC)){
+            $comp = $row['comp'];
+            $nrcomp = $row['nrcomp'];
+            echo "<item>
+                    <title>$comp</title>
+                    <gama:playernr>$nrcomp</gama:playernr>
+                    <category>championships</category>
                 </item>";
         }
     }
