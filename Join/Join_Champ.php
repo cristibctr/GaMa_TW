@@ -26,5 +26,9 @@
                 die('Error establishing connection with database'.$e);
             }
         }
+    else {
+        header("Location: /Login/login.php");
+        exit();
+    }
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
