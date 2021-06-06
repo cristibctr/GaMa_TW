@@ -27,8 +27,6 @@ flex-direction: column;
 justify-content: space-around;
 }
 .titlepage{
- 
-    text-align: auto;
     overflow: hidden;
    
 }

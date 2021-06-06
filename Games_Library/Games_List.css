@@ -190,7 +190,6 @@
     font-weight: 900;
     font-size: 30px;
     text-align: center;
-    backdrop-filter: blur(4px);
 }
 .gamecard-release{
     padding-top: 10px;

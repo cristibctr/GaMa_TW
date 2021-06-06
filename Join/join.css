@@ -89,7 +89,6 @@
     font-weight: 900;
     font-size: 20px;
     text-align: center;
-    backdrop-filter: blur(4px);
     margin-left:100px;
     border-radius:20px;
 }
@@ -104,7 +103,7 @@
     font-weight: 900;
     font-size: 20px;
     text-align: center;
-    backdrop-filter: blur(4px);
+
     margin-left:100px;
     border-radius:20px;
 }
@@ -119,7 +118,6 @@
     font-weight: 900;
     font-size: 20px;
     text-align: center;
-    backdrop-filter: blur(4px);
     margin-left:100px;
     border-radius:20px;
 }
@@ -135,7 +133,6 @@
     font-weight: 900;
     font-size: 20px;
     text-align: center;
-    backdrop-filter: blur(4px);
     border-radius:20px;
 }
 
