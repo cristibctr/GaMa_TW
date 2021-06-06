@@ -99,10 +99,10 @@
             <div class="media">
                 <a href="../index.php" class="site-name">GAMA</a>
                 <div class="social">
-                    <a href="https://www.facebook.com"><img alt="image" src="../Images/Index/facebook.png"></a>
-                    <a href="https://www.instagram.com"><img alt="image" src="../Images/Index/instagram.png"></a>
-                    <a href="https://www.twitter.com"><img alt="image" src="../Images/Index/twitter.png"></a>
-                    <a href="https://www.reddit.com"><img alt="image" src="../Images/Index/reddit.png"></a>
+                    <a href="https://www.facebook.com"><img alt="image" src="/Images/Index/facebook.png"></a>
+                    <a href="/Documentatie/scholarly-html-GaMa-report/index.html"><img alt="image" src="/Images/Index/document.png"></a>
+                    <a href="/RSS/rss.php"><img alt="image" src="/Images/Index/rss-feed.png"></a>
+                    <a href="https://www.reddit.com"><img alt="image" src="/Images/Index/reddit.png"></a>
                 </div>
             </div>
             <div class="contact">
